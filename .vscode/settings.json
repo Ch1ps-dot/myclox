@@ -1,5 +1,7 @@
 {
     "files.associations": {
-        "stddef.h": "c"
+        "*.cpp": "cpp",
+        "stddef.h": "c",
+        "value.h": "c"
     }
 }
