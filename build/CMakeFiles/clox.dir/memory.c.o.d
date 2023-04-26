@@ -1,4 +1,4 @@
-CMakeFiles/clox.dir/memory.c.o: /home/ch1p2/下载/clox/memory.c \
+CMakeFiles/clox.dir/memory.c.o: /home/ch1p2/handjob/clox/memory.c \
  /usr/include/stdc-predef.h /usr/include/stdlib.h \
  /usr/include/x86_64-linux-gnu/bits/libc-header-start.h \
  /usr/include/features.h /usr/include/features-time64.h \
@@ -39,7 +39,7 @@ CMakeFiles/clox.dir/memory.c.o: /home/ch1p2/下载/clox/memory.c \
  /usr/include/x86_64-linux-gnu/bits/struct_mutex.h \
  /usr/include/x86_64-linux-gnu/bits/struct_rwlock.h /usr/include/alloca.h \
  /usr/include/x86_64-linux-gnu/bits/stdlib-float.h \
- /home/ch1p2/下载/clox/memory.h /home/ch1p2/下载/clox/common.h \
+ /home/ch1p2/handjob/clox/memory.h /home/ch1p2/handjob/clox/common.h \
  /usr/lib/gcc/x86_64-linux-gnu/11/include/stdbool.h \
  /usr/lib/gcc/x86_64-linux-gnu/11/include/stdint.h /usr/include/stdint.h \
  /usr/include/x86_64-linux-gnu/bits/wchar.h \

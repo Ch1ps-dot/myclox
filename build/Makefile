@@ -57,10 +57,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/ch1p2/下载/clox
+CMAKE_SOURCE_DIR = /home/ch1p2/handjob/clox
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/ch1p2/下载/clox/build
+CMAKE_BINARY_DIR = /home/ch1p2/handjob/clox/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -87,9 +87,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/ch1p2/下载/clox/build/CMakeFiles /home/ch1p2/下载/clox/build//CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ch1p2/handjob/clox/build/CMakeFiles /home/ch1p2/handjob/clox/build//CMakeFiles/progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/ch1p2/下载/clox/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/ch1p2/handjob/clox/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -225,6 +225,30 @@ memory.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/clox.dir/build.make CMakeFiles/clox.dir/memory.c.s
 .PHONY : memory.c.s
 
+value.o: value.c.o
+.PHONY : value.o
+
+# target to build an object file
+value.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/clox.dir/build.make CMakeFiles/clox.dir/value.c.o
+.PHONY : value.c.o
+
+value.i: value.c.i
+.PHONY : value.i
+
+# target to preprocess a source file
+value.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/clox.dir/build.make CMakeFiles/clox.dir/value.c.i
+.PHONY : value.c.i
+
+value.s: value.c.s
+.PHONY : value.s
+
+# target to generate assembly for a file
+value.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/clox.dir/build.make CMakeFiles/clox.dir/value.c.s
+.PHONY : value.c.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -246,6 +270,9 @@ help:
 	@echo "... memory.o"
 	@echo "... memory.i"
 	@echo "... memory.s"
+	@echo "... value.o"
+	@echo "... value.i"
+	@echo "... value.s"
 .PHONY : help
 
 

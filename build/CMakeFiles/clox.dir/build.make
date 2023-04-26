@@ -53,10 +53,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/ch1p2/下载/clox
+CMAKE_SOURCE_DIR = /home/ch1p2/handjob/clox
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/ch1p2/下载/clox/build
+CMAKE_BINARY_DIR = /home/ch1p2/handjob/clox/build
 
 # Include any dependencies generated for this target.
 include CMakeFiles/clox.dir/depend.make
@@ -72,65 +72,80 @@ include CMakeFiles/clox.dir/flags.make
 CMakeFiles/clox.dir/chunk.c.o: CMakeFiles/clox.dir/flags.make
 CMakeFiles/clox.dir/chunk.c.o: ../chunk.c
 CMakeFiles/clox.dir/chunk.c.o: CMakeFiles/clox.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ch1p2/下载/clox/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/clox.dir/chunk.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/clox.dir/chunk.c.o -MF CMakeFiles/clox.dir/chunk.c.o.d -o CMakeFiles/clox.dir/chunk.c.o -c /home/ch1p2/下载/clox/chunk.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ch1p2/handjob/clox/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/clox.dir/chunk.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/clox.dir/chunk.c.o -MF CMakeFiles/clox.dir/chunk.c.o.d -o CMakeFiles/clox.dir/chunk.c.o -c /home/ch1p2/handjob/clox/chunk.c
 
 CMakeFiles/clox.dir/chunk.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/clox.dir/chunk.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/ch1p2/下载/clox/chunk.c > CMakeFiles/clox.dir/chunk.c.i
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/ch1p2/handjob/clox/chunk.c > CMakeFiles/clox.dir/chunk.c.i
 
 CMakeFiles/clox.dir/chunk.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/clox.dir/chunk.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/ch1p2/下载/clox/chunk.c -o CMakeFiles/clox.dir/chunk.c.s
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/ch1p2/handjob/clox/chunk.c -o CMakeFiles/clox.dir/chunk.c.s
 
 CMakeFiles/clox.dir/debug.c.o: CMakeFiles/clox.dir/flags.make
 CMakeFiles/clox.dir/debug.c.o: ../debug.c
 CMakeFiles/clox.dir/debug.c.o: CMakeFiles/clox.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ch1p2/下载/clox/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/clox.dir/debug.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/clox.dir/debug.c.o -MF CMakeFiles/clox.dir/debug.c.o.d -o CMakeFiles/clox.dir/debug.c.o -c /home/ch1p2/下载/clox/debug.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ch1p2/handjob/clox/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/clox.dir/debug.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/clox.dir/debug.c.o -MF CMakeFiles/clox.dir/debug.c.o.d -o CMakeFiles/clox.dir/debug.c.o -c /home/ch1p2/handjob/clox/debug.c
 
 CMakeFiles/clox.dir/debug.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/clox.dir/debug.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/ch1p2/下载/clox/debug.c > CMakeFiles/clox.dir/debug.c.i
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/ch1p2/handjob/clox/debug.c > CMakeFiles/clox.dir/debug.c.i
 
 CMakeFiles/clox.dir/debug.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/clox.dir/debug.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/ch1p2/下载/clox/debug.c -o CMakeFiles/clox.dir/debug.c.s
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/ch1p2/handjob/clox/debug.c -o CMakeFiles/clox.dir/debug.c.s
 
 CMakeFiles/clox.dir/main.c.o: CMakeFiles/clox.dir/flags.make
 CMakeFiles/clox.dir/main.c.o: ../main.c
 CMakeFiles/clox.dir/main.c.o: CMakeFiles/clox.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ch1p2/下载/clox/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object CMakeFiles/clox.dir/main.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/clox.dir/main.c.o -MF CMakeFiles/clox.dir/main.c.o.d -o CMakeFiles/clox.dir/main.c.o -c /home/ch1p2/下载/clox/main.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ch1p2/handjob/clox/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object CMakeFiles/clox.dir/main.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/clox.dir/main.c.o -MF CMakeFiles/clox.dir/main.c.o.d -o CMakeFiles/clox.dir/main.c.o -c /home/ch1p2/handjob/clox/main.c
 
 CMakeFiles/clox.dir/main.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/clox.dir/main.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/ch1p2/下载/clox/main.c > CMakeFiles/clox.dir/main.c.i
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/ch1p2/handjob/clox/main.c > CMakeFiles/clox.dir/main.c.i
 
 CMakeFiles/clox.dir/main.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/clox.dir/main.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/ch1p2/下载/clox/main.c -o CMakeFiles/clox.dir/main.c.s
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/ch1p2/handjob/clox/main.c -o CMakeFiles/clox.dir/main.c.s
 
 CMakeFiles/clox.dir/memory.c.o: CMakeFiles/clox.dir/flags.make
 CMakeFiles/clox.dir/memory.c.o: ../memory.c
 CMakeFiles/clox.dir/memory.c.o: CMakeFiles/clox.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ch1p2/下载/clox/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building C object CMakeFiles/clox.dir/memory.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/clox.dir/memory.c.o -MF CMakeFiles/clox.dir/memory.c.o.d -o CMakeFiles/clox.dir/memory.c.o -c /home/ch1p2/下载/clox/memory.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ch1p2/handjob/clox/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building C object CMakeFiles/clox.dir/memory.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/clox.dir/memory.c.o -MF CMakeFiles/clox.dir/memory.c.o.d -o CMakeFiles/clox.dir/memory.c.o -c /home/ch1p2/handjob/clox/memory.c
 
 CMakeFiles/clox.dir/memory.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/clox.dir/memory.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/ch1p2/下载/clox/memory.c > CMakeFiles/clox.dir/memory.c.i
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/ch1p2/handjob/clox/memory.c > CMakeFiles/clox.dir/memory.c.i
 
 CMakeFiles/clox.dir/memory.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/clox.dir/memory.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/ch1p2/下载/clox/memory.c -o CMakeFiles/clox.dir/memory.c.s
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/ch1p2/handjob/clox/memory.c -o CMakeFiles/clox.dir/memory.c.s
+
+CMakeFiles/clox.dir/value.c.o: CMakeFiles/clox.dir/flags.make
+CMakeFiles/clox.dir/value.c.o: ../value.c
+CMakeFiles/clox.dir/value.c.o: CMakeFiles/clox.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ch1p2/handjob/clox/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building C object CMakeFiles/clox.dir/value.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/clox.dir/value.c.o -MF CMakeFiles/clox.dir/value.c.o.d -o CMakeFiles/clox.dir/value.c.o -c /home/ch1p2/handjob/clox/value.c
+
+CMakeFiles/clox.dir/value.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/clox.dir/value.c.i"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/ch1p2/handjob/clox/value.c > CMakeFiles/clox.dir/value.c.i
+
+CMakeFiles/clox.dir/value.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/clox.dir/value.c.s"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/ch1p2/handjob/clox/value.c -o CMakeFiles/clox.dir/value.c.s
 
 # Object files for target clox
 clox_OBJECTS = \
 "CMakeFiles/clox.dir/chunk.c.o" \
 "CMakeFiles/clox.dir/debug.c.o" \
 "CMakeFiles/clox.dir/main.c.o" \
-"CMakeFiles/clox.dir/memory.c.o"
+"CMakeFiles/clox.dir/memory.c.o" \
+"CMakeFiles/clox.dir/value.c.o"
 
 # External object files for target clox
 clox_EXTERNAL_OBJECTS =
@@ -139,9 +154,10 @@ clox: CMakeFiles/clox.dir/chunk.c.o
 clox: CMakeFiles/clox.dir/debug.c.o
 clox: CMakeFiles/clox.dir/main.c.o
 clox: CMakeFiles/clox.dir/memory.c.o
+clox: CMakeFiles/clox.dir/value.c.o
 clox: CMakeFiles/clox.dir/build.make
 clox: CMakeFiles/clox.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/ch1p2/下载/clox/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking C executable clox"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/ch1p2/handjob/clox/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Linking C executable clox"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/clox.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -153,6 +169,6 @@ CMakeFiles/clox.dir/clean:
 .PHONY : CMakeFiles/clox.dir/clean
 
 CMakeFiles/clox.dir/depend:
-	cd /home/ch1p2/下载/clox/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/ch1p2/下载/clox /home/ch1p2/下载/clox /home/ch1p2/下载/clox/build /home/ch1p2/下载/clox/build /home/ch1p2/下载/clox/build/CMakeFiles/clox.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/ch1p2/handjob/clox/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/ch1p2/handjob/clox /home/ch1p2/handjob/clox /home/ch1p2/handjob/clox/build /home/ch1p2/handjob/clox/build /home/ch1p2/handjob/clox/build/CMakeFiles/clox.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/clox.dir/depend
 

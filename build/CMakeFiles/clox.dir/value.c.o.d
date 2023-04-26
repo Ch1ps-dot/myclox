@@ -1,4 +1,4 @@
-CMakeFiles/clox.dir/debug.c.o: /home/ch1p2/handjob/clox/debug.c \
+CMakeFiles/clox.dir/value.c.o: /home/ch1p2/handjob/clox/value.c \
  /usr/include/stdc-predef.h /usr/include/stdio.h \
  /usr/include/x86_64-linux-gnu/bits/libc-header-start.h \
  /usr/include/features.h /usr/include/features-time64.h \
@@ -22,8 +22,7 @@ CMakeFiles/clox.dir/debug.c.o: /home/ch1p2/handjob/clox/debug.c \
  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h \
  /usr/include/x86_64-linux-gnu/bits/floatn.h \
  /usr/include/x86_64-linux-gnu/bits/floatn-common.h \
- /home/ch1p2/handjob/clox/debug.h /home/ch1p2/handjob/clox/chunk.h \
- /home/ch1p2/handjob/clox/common.h \
+ /home/ch1p2/handjob/clox/memory.h /home/ch1p2/handjob/clox/common.h \
  /usr/lib/gcc/x86_64-linux-gnu/11/include/stdbool.h \
  /usr/lib/gcc/x86_64-linux-gnu/11/include/stdint.h /usr/include/stdint.h \
  /usr/include/x86_64-linux-gnu/bits/wchar.h \
