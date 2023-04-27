@@ -9,7 +9,7 @@ void* reallocate(void* pointer, size_t oldSize, size_t newSize) {
         return NULL;
     }
 
-    // realloc is implementation of malloc.
+    // realloc is implementation of malloc, it returns the first address of new memory.
     // If the memory after the block is unused,
     // realloc return the same pointer. Otherwise,
     // it allocates a new block of memory of the desired size.
