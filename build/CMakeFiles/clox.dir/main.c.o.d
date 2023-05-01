@@ -18,4 +18,4 @@ CMakeFiles/clox.dir/main.c.o: /home/ch1p2/handjob/clox/main.c \
  /usr/include/x86_64-linux-gnu/bits/stdint-intn.h \
  /usr/include/x86_64-linux-gnu/bits/stdint-uintn.h \
  /home/ch1p2/handjob/clox/chunk.h /home/ch1p2/handjob/clox/value.h \
- /home/ch1p2/handjob/clox/debug.h
+ /home/ch1p2/handjob/clox/debug.h /home/ch1p2/handjob/clox/vm.h

@@ -13,6 +13,7 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/ch1p2/handjob/clox/main.c" "CMakeFiles/clox.dir/main.c.o" "gcc" "CMakeFiles/clox.dir/main.c.o.d"
   "/home/ch1p2/handjob/clox/memory.c" "CMakeFiles/clox.dir/memory.c.o" "gcc" "CMakeFiles/clox.dir/memory.c.o.d"
   "/home/ch1p2/handjob/clox/value.c" "CMakeFiles/clox.dir/value.c.o" "gcc" "CMakeFiles/clox.dir/value.c.o.d"
+  "/home/ch1p2/handjob/clox/vm.c" "CMakeFiles/clox.dir/vm.c.o" "gcc" "CMakeFiles/clox.dir/vm.c.o.d"
   )
 
 # Targets to which this target links.

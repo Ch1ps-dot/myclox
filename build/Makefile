@@ -249,6 +249,30 @@ value.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/clox.dir/build.make CMakeFiles/clox.dir/value.c.s
 .PHONY : value.c.s
 
+vm.o: vm.c.o
+.PHONY : vm.o
+
+# target to build an object file
+vm.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/clox.dir/build.make CMakeFiles/clox.dir/vm.c.o
+.PHONY : vm.c.o
+
+vm.i: vm.c.i
+.PHONY : vm.i
+
+# target to preprocess a source file
+vm.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/clox.dir/build.make CMakeFiles/clox.dir/vm.c.i
+.PHONY : vm.c.i
+
+vm.s: vm.c.s
+.PHONY : vm.s
+
+# target to generate assembly for a file
+vm.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/clox.dir/build.make CMakeFiles/clox.dir/vm.c.s
+.PHONY : vm.c.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -273,6 +297,9 @@ help:
 	@echo "... value.o"
 	@echo "... value.i"
 	@echo "... value.s"
+	@echo "... vm.o"
+	@echo "... vm.i"
+	@echo "... vm.s"
 .PHONY : help
 
 
