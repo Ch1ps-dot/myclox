@@ -9,10 +9,12 @@
 ---
 
 ## UPDATE
+- 2023-05-03
+  - completed the structure of scanner. Initially setting up the tokens analyse section. 
 - 2023-05-01
-  - finished the structure of virtual machine, and the core of vm to dispatch instructions.
-  - finished all chllenge under this chapter. Tbn, they are mostly answering by text but not code.
+  - completed the structure of virtual machine, and the core of vm to dispatch instructions.
+  - completed all chllenge under this chapter. Tbn, they are mostly answering by text but not code.
 
 - 2023-04-27
-  - finished the definition and manipulation of bytecode chunk.
-  - finished the challenge one of chapter 14: implementation the struct to store line information by run-line code as well as functions to allocate memory and resolve for that. 
+  - completed the definition and manipulation of bytecode chunk.
+  - completed the challenge one of chapter 14: implementation the struct to store line information by run-line code as well as functions to allocate memory and resolve for that. 
