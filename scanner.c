@@ -84,6 +84,7 @@ errorToken(const char* message) {
     token.line = scanner.line;
     return token;
 }
+
 // skip whitespace loop
 static void
 skipWhitespace() {
@@ -93,6 +94,10 @@ skipWhitespace() {
             case ' ':
             case '\r':
             case '\t':
+                advance();
+                break;
+            case '\n':
+                scanner.line++;
                 advance();
                 break;
             case '/':
@@ -186,7 +191,7 @@ string() {
         advance();
     }
 
-    if (isAtEnd()) return errorToken("Unterminated string.");
+    if (isAtEnd()) return errorToken("Unterminated string.\n");
 
     // The closing quote
     advance();
@@ -233,5 +238,5 @@ scanToken() {
         case '"': return string();
     }
 
-    return errorToken("Unexpected character.");
+    return errorToken("Unexpected character.\n");
 }

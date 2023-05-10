@@ -1,3 +1,0 @@
-/home/ch1p2/handjob/clox/build/CMakeFiles/clox.dir
-/home/ch1p2/handjob/clox/build/CMakeFiles/edit_cache.dir
-/home/ch1p2/handjob/clox/build/CMakeFiles/rebuild_cache.dir

@@ -51,12 +51,12 @@ static Chunk* currentChunk() {
 static void errorAt(Token* token, const char* message) {
 
     // trigger panic mode
-    if (parser.panicMode) return
+    if (parser.panicMode) return;
     parser.panicMode = true;
 
     fprintf(stderr, "[line %d] Error", token->line);
 
-    if (token->type == TOKEN_ERROR) {
+    if (token->type == TOKEN_EOF) {
         fprintf(stderr, " at end");
     } else if (token->type == TOKEN_ERROR) {
         // nothing
@@ -86,6 +86,7 @@ static void advance() {
     // asking for nonerror token
     for(;;) {
         parser.current = scanToken();
+        
         if (parser.current.type != TOKEN_ERROR) break;
 
         errorAtCurrent(parser.current.start);
@@ -93,7 +94,7 @@ static void advance() {
 }
 
 // validating that the token has a expected type
-static void consumer(TokenType type, const char* message) {
+static void consume(TokenType type, const char* message) {
     if (parser.current.type == type) {
         advance();
         return;
@@ -139,7 +140,7 @@ static void endCompiling() {
     emitReturn();
 #ifdef DEBUG_PRINT_CODE
     if (!parser.hadError) {
-        disassembleChunk(currentChunk(), "code");
+        disassembleChunk(currentChunk(), "bytecode");
     }
 #endif
 }
@@ -274,6 +275,6 @@ compile(const char* source, Chunk* chunk) {
     advance();
     expression();
     consume(TOKEN_EOF, "Expect end of expression.");
-    endCompling();
+    endCompiling();
     return !parser.hadError;
 }

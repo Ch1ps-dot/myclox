@@ -6,13 +6,13 @@
 // disassemble chunk
 void
 disassembleChunk(Chunk* chunk, const char* name) {
-    printf("== %s ==\n", name);
+    printf("--- %s \n", name);
 
     for (int offset = 0; offset < chunk->count;) {
         // advance offset
         offset = disassembleInstruction(chunk, offset);
     }
-    printf("== %s end ==\n\n", name);
+    printf("--- %s end \n\n", name);
 }
 
 // display constant instruction
