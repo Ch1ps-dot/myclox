@@ -193,7 +193,7 @@ string() {
     return makeToken(TOKEN_STRING);
 }
 
-// scan and make tokens
+// scan source string and make tokens
 Token 
 scanToken() {
     skipWhitespace();

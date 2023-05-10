@@ -9,6 +9,8 @@
 ---
 
 ## UPDATE
+- 2023-05-10
+  - completed the chapter of parser.
 - 2023-05-03
   - completed the structure of scanner. Initially setting up the tokens analyse section. 
 - 2023-05-01
