@@ -1,4 +1,6 @@
-// the module define bytecode
+/**
+ * the header contain definition of bytecode 
+*/
 
 #ifndef clox_chunk_h
 #define clox_chunk_h
@@ -9,12 +11,19 @@
 // operator code
 typedef enum {
     OP_CONSTANT,
+    OP_NIL,
+    OP_FALSE,
+    OP_TRUE,
+    OP_EQUAL,
+    OP_GREATER,
+    OP_LESS,
     OP_ADD,
     OP_SUBTRACT,
     OP_MULTIPLY,
     OP_DIVIDE,
+    OP_NOT,
     OP_NEGATE,
-    OP_CONSTANT_LONG,
+    OP_CONSTANT_LONG, // prepared for future implementation
     OP_RETURN,
 } OpCode;
 

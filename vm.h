@@ -11,7 +11,7 @@ typedef struct
     Chunk* chunk;
     uint8_t* ip;
     Value stack[STACK_MAX];
-    Value* stackTop; // indicate to the next index of last element
+    Value* stackTop; // point to the space uppon top element
 } VM;
 
 typedef enum {

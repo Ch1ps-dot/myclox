@@ -1,4 +1,5 @@
 # myclox
+
 ## LOX语言的简单实现
 
 - 根据[crafting interpreters](http://www.craftinginterpreters.com/)，一书中lox语言解释器的C语言版本的实现，添加了一些注释和作者书中所提及但未实现的功能。由于文件都放在master分支下，克隆仓库后请切换至master分支。
@@ -9,6 +10,10 @@
 ---
 
 ## UPDATE
+
+- 2023-05-13
+  - add some new types included boolean, nil and related instruction parsing functions.
+  - add functions to parse equalty operators.
 - 2023-05-10
   - completed the chapter of parser.
 - 2023-05-03

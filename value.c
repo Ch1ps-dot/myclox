@@ -32,8 +32,26 @@ freeValueArray(ValueArray* array) {
   initValueArray(array);
 }
 
-// Output value in hexadecimal
+// Outputing value including nil, boolean and number.
 void 
 printValue(Value value) {
-  printf("%g", value);
+  switch(value.type) {
+    case VAL_BOOL:
+      printf(AS_BOOL(value) ? "true" : "false");
+      break;
+    case VAL_NIL: printf("nil"); break;
+    case VAL_NUMBER: printf("%g",AS_NUMBER(value)); break;
+  }
+}
+
+// comparing value, but values with different types cant compare with each other.
+bool
+valuesEqual(Value a, Value b) {
+  if (a.type != b.type) return false;
+  switch (a.type) {
+    case VAL_BOOL:   return AS_BOOL(a) == AS_BOOL(b);
+    case VAL_NIL:    return true;
+    case VAL_NUMBER: return AS_NUMBER(b) == AS_NUMBER(a);
+    default: return false;
+  }
 }
