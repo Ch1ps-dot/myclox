@@ -10,7 +10,8 @@
 ---
 
 ## UPDATE
-
+- 2023-05-25
+  - finish string operation
 - 2023-05-13
   - add some new types included boolean, nil and related instruction parsing functions.
   - add functions to parse equalty operators.
