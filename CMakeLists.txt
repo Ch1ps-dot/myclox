@@ -2,4 +2,21 @@ cmake_minimum_required(VERSION 3.10)
 
 project(clox)
 
-add_executable(clox chunk.c debug.c main.c memory.c value.c vm.c compiler.c scanner.c)
+set(SOURCES
+    src/chunk.c
+    src/debug.c
+    src/main.c
+    src/memory.c
+    src/value.c
+    src/vm.c
+    src/compiler.c
+    src/scanner.c
+    src/object.c
+)
+
+add_executable(clox ${SOURCES})
+
+target_include_directories(clox
+    PRIVATE
+        ${PROJECT_SOURCE_DIR}/include
+)

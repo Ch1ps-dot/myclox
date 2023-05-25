@@ -1,3 +1,0 @@
-/root/handjob/myclox/build/CMakeFiles/clox.dir
-/root/handjob/myclox/build/CMakeFiles/edit_cache.dir
-/root/handjob/myclox/build/CMakeFiles/rebuild_cache.dir
