@@ -10,15 +10,22 @@
 ---
 
 ## UPDATE
+- 2023-05-26
+  - finish hash table
+  
 - 2023-05-25
   - finish string operation
+
 - 2023-05-13
   - add some new types included boolean, nil and related instruction parsing functions.
   - add functions to parse equalty operators.
+
 - 2023-05-10
   - completed the chapter of parser.
+
 - 2023-05-03
   - completed the structure of scanner. Initially setting up the tokens analyse section. 
+  
 - 2023-05-01
   - completed the structure of virtual machine, and the core of vm to dispatch instructions.
   - completed all chllenge under this chapter. Tbn, they are mostly answering by text but not code.

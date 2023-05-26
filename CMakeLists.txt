@@ -12,6 +12,7 @@ set(SOURCES
     src/compiler.c
     src/scanner.c
     src/object.c
+    src/table.c
 )
 
 add_executable(clox ${SOURCES})

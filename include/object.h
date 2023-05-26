@@ -27,26 +27,14 @@ typedef struct Obj {
 
 typedef struct ObjString
 {
-    Obj obj;
+    Obj obj;       // base struct
     int length;
     char* chars;
+    uint32_t hash; // hash value
 } ObjString;
 
 ObjString* takeString(char* chars, int length);
 ObjString* copyString(const char* chars, int length);
-
-// // strange solution of error message "undefined type"
-// #ifndef clox_tmp_Value
-// #define clox_tmp_Value
-// typedef struct Value{
-//   ValueType type;
-//   union {
-//     bool boolean;
-//     double number;
-//     Obj* obj;
-//   } as; 
-// } Value;
-// #endif
 
 bool isObjType(Value value, ObjType type); 
 

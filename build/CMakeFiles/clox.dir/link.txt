@@ -1,0 +1,1 @@
+/usr/bin/gcc -g CMakeFiles/clox.dir/src/chunk.c.o CMakeFiles/clox.dir/src/debug.c.o CMakeFiles/clox.dir/src/main.c.o CMakeFiles/clox.dir/src/memory.c.o CMakeFiles/clox.dir/src/value.c.o CMakeFiles/clox.dir/src/vm.c.o CMakeFiles/clox.dir/src/compiler.c.o CMakeFiles/clox.dir/src/scanner.c.o CMakeFiles/clox.dir/src/object.c.o CMakeFiles/clox.dir/src/table.c.o -o clox 

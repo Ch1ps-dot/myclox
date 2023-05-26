@@ -1,0 +1,52 @@
+[
+{
+  "directory": "/root/handjob/myclox/build",
+  "command": "/usr/bin/gcc  -I/root/handjob/myclox/include -g -o CMakeFiles/clox.dir/src/chunk.c.o -c /root/handjob/myclox/src/chunk.c",
+  "file": "/root/handjob/myclox/src/chunk.c"
+},
+{
+  "directory": "/root/handjob/myclox/build",
+  "command": "/usr/bin/gcc  -I/root/handjob/myclox/include -g -o CMakeFiles/clox.dir/src/debug.c.o -c /root/handjob/myclox/src/debug.c",
+  "file": "/root/handjob/myclox/src/debug.c"
+},
+{
+  "directory": "/root/handjob/myclox/build",
+  "command": "/usr/bin/gcc  -I/root/handjob/myclox/include -g -o CMakeFiles/clox.dir/src/main.c.o -c /root/handjob/myclox/src/main.c",
+  "file": "/root/handjob/myclox/src/main.c"
+},
+{
+  "directory": "/root/handjob/myclox/build",
+  "command": "/usr/bin/gcc  -I/root/handjob/myclox/include -g -o CMakeFiles/clox.dir/src/memory.c.o -c /root/handjob/myclox/src/memory.c",
+  "file": "/root/handjob/myclox/src/memory.c"
+},
+{
+  "directory": "/root/handjob/myclox/build",
+  "command": "/usr/bin/gcc  -I/root/handjob/myclox/include -g -o CMakeFiles/clox.dir/src/value.c.o -c /root/handjob/myclox/src/value.c",
+  "file": "/root/handjob/myclox/src/value.c"
+},
+{
+  "directory": "/root/handjob/myclox/build",
+  "command": "/usr/bin/gcc  -I/root/handjob/myclox/include -g -o CMakeFiles/clox.dir/src/vm.c.o -c /root/handjob/myclox/src/vm.c",
+  "file": "/root/handjob/myclox/src/vm.c"
+},
+{
+  "directory": "/root/handjob/myclox/build",
+  "command": "/usr/bin/gcc  -I/root/handjob/myclox/include -g -o CMakeFiles/clox.dir/src/compiler.c.o -c /root/handjob/myclox/src/compiler.c",
+  "file": "/root/handjob/myclox/src/compiler.c"
+},
+{
+  "directory": "/root/handjob/myclox/build",
+  "command": "/usr/bin/gcc  -I/root/handjob/myclox/include -g -o CMakeFiles/clox.dir/src/scanner.c.o -c /root/handjob/myclox/src/scanner.c",
+  "file": "/root/handjob/myclox/src/scanner.c"
+},
+{
+  "directory": "/root/handjob/myclox/build",
+  "command": "/usr/bin/gcc  -I/root/handjob/myclox/include -g -o CMakeFiles/clox.dir/src/object.c.o -c /root/handjob/myclox/src/object.c",
+  "file": "/root/handjob/myclox/src/object.c"
+},
+{
+  "directory": "/root/handjob/myclox/build",
+  "command": "/usr/bin/gcc  -I/root/handjob/myclox/include -g -o CMakeFiles/clox.dir/src/table.c.o -c /root/handjob/myclox/src/table.c",
+  "file": "/root/handjob/myclox/src/table.c"
+}
+]

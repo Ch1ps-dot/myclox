@@ -3,6 +3,7 @@
 
 #include "chunk.h"
 #include "value.h"
+#include "table.h"
 
 #define STACK_MAX 256
 // definition of virtual-machine
@@ -12,6 +13,7 @@ typedef struct
     uint8_t* ip;
     Value stack[STACK_MAX];
     Value* stackTop; // point to the space uppon top element
+    Table strings;
     Obj* objects;     // obj linklist for GC
 } VM;
 
