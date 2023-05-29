@@ -44,7 +44,15 @@ CMakeFiles/clox.dir/src/memory.c.o: /root/handjob/myclox/src/memory.c \
  /usr/lib/gcc/x86_64-linux-gnu/11/include/stdbool.h \
  /usr/lib/gcc/x86_64-linux-gnu/11/include/stdint.h /usr/include/stdint.h \
  /usr/include/x86_64-linux-gnu/bits/wchar.h \
- /usr/include/x86_64-linux-gnu/bits/stdint-uintn.h \
+ /usr/include/x86_64-linux-gnu/bits/stdint-uintn.h /usr/include/stdio.h \
+ /usr/lib/gcc/x86_64-linux-gnu/11/include/stdarg.h \
+ /usr/include/x86_64-linux-gnu/bits/types/__fpos_t.h \
+ /usr/include/x86_64-linux-gnu/bits/types/__mbstate_t.h \
+ /usr/include/x86_64-linux-gnu/bits/types/__fpos64_t.h \
+ /usr/include/x86_64-linux-gnu/bits/types/__FILE.h \
+ /usr/include/x86_64-linux-gnu/bits/types/FILE.h \
+ /usr/include/x86_64-linux-gnu/bits/types/struct_FILE.h \
+ /usr/include/x86_64-linux-gnu/bits/stdio_lim.h \
  /root/handjob/myclox/include/object.h \
  /root/handjob/myclox/include/value.h /root/handjob/myclox/include/vm.h \
  /root/handjob/myclox/include/chunk.h \

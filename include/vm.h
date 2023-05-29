@@ -13,8 +13,9 @@ typedef struct
     uint8_t* ip;
     Value stack[STACK_MAX];
     Value* stackTop; // point to the space uppon top element
-    Table strings;
-    Obj* objects;     // obj linklist for GC
+    Table globals;    // global variable table
+    Table strings;   // string table
+    Obj* objects;    // obj linklist for GC
 } VM;
 
 typedef enum {

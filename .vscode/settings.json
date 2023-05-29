@@ -6,6 +6,9 @@
         "type_traits": "c",
         "stdio.h": "c",
         "vm.h": "c",
-        "common.h": "c"
+        "common.h": "c",
+        "stdint.h": "c",
+        "table.h": "c",
+        "typeinfo": "c"
     }
 }
