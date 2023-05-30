@@ -2,6 +2,7 @@
 #define clox_complier_h
 
 #include "vm.h"
+#include "scanner.h"
 
 bool compile(const char* source, Chunk* chunk);
 
@@ -19,6 +20,18 @@ typedef enum {
     PREC_CALL,        // . ()
     PREC_PRIMARY
 } Precedence;
+
+typedef struct {
+  Token name;
+  int depth;
+} Local;
+
+typedef struct {
+  Local locals[UINT8_COUNT];
+  int localCount;
+  int scopeDepth;
+} Compiler;
+
 
 
 #endif

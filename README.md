@@ -11,7 +11,11 @@
 
 ## UPDATE
 - 2023-05-29
+  - finish local variable
+
+- 2023-05-29
   - finish global variable
+
 - 2023-05-26
   - finish hash table
   

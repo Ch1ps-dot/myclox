@@ -1,0 +1,10 @@
+var a = 10;
+{
+    var a = 9;
+    {
+        var a = 8;
+        print a;
+    }
+    print a;
+}
+print a;

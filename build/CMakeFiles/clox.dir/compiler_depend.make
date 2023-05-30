@@ -120,6 +120,10 @@ CMakeFiles/clox.dir/src/compiler.c.o: ../src/compiler.c \
   /usr/include/x86_64-linux-gnu/bits/struct_rwlock.h \
   /usr/include/alloca.h \
   /usr/include/x86_64-linux-gnu/bits/stdlib-float.h \
+  /usr/include/string.h \
+  /usr/include/x86_64-linux-gnu/bits/types/locale_t.h \
+  /usr/include/x86_64-linux-gnu/bits/types/__locale_t.h \
+  /usr/include/strings.h \
   ../include/common.h \
   /usr/lib/gcc/x86_64-linux-gnu/11/include/stdbool.h \
   /usr/lib/gcc/x86_64-linux-gnu/11/include/stdint.h \
@@ -133,6 +137,7 @@ CMakeFiles/clox.dir/src/compiler.c.o: ../src/compiler.c \
   ../include/value.h \
   ../include/object.h \
   ../include/table.h \
+  ../include/scanner.h \
   ../include/scanner.h \
   ../include/object.h
 
@@ -557,6 +562,7 @@ CMakeFiles/clox.dir/src/vm.c.o: ../src/vm.c \
   ../include/debug.h \
   ../include/compiler.h \
   ../include/vm.h \
+  ../include/scanner.h \
   ../include/object.h \
   ../include/memory.h
 
@@ -569,10 +575,6 @@ CMakeFiles/clox.dir/src/vm.c.o: ../src/vm.c \
 
 ../src/memory.c:
 
-/usr/include/strings.h:
-
-/usr/include/x86_64-linux-gnu/bits/types/locale_t.h:
-
 ../src/value.c:
 
 ../include/scanner.h:
@@ -580,6 +582,10 @@ CMakeFiles/clox.dir/src/vm.c.o: ../src/vm.c \
 ../include/table.h:
 
 ../include/compiler.h:
+
+/usr/include/strings.h:
+
+/usr/include/x86_64-linux-gnu/bits/types/locale_t.h:
 
 ../include/memory.h:
 

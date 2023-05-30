@@ -37,5 +37,6 @@ CMakeFiles/clox.dir/src/vm.c.o: /root/handjob/myclox/src/vm.c \
  /root/handjob/myclox/include/table.h \
  /root/handjob/myclox/include/debug.h \
  /root/handjob/myclox/include/compiler.h \
- /root/handjob/myclox/include/vm.h /root/handjob/myclox/include/object.h \
+ /root/handjob/myclox/include/vm.h /root/handjob/myclox/include/scanner.h \
+ /root/handjob/myclox/include/object.h \
  /root/handjob/myclox/include/memory.h
