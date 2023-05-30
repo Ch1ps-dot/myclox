@@ -1,0 +1,22 @@
+var i = 0;
+while (i < 5) {
+    print i;
+    i = i + 1;
+}
+for (var i = 0; i < 10; i = i + 1) {
+    if (i < 10) {
+        print i;
+    }
+    else {
+        print -i;
+    }
+    i = i + 1;
+}
+var a = true;
+var b = false;
+if (a and b) {
+    print "and";
+}
+if (a or b) {
+    print "or";
+}

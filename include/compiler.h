@@ -32,6 +32,37 @@ typedef struct {
   int scopeDepth;
 } Compiler;
 
+// structure of parser
+typedef struct {
+    Token current;
+    bool hadError;
+    bool panicMode;
+    Token previous;
+} Parser;
 
+typedef void (*ParseFn)(bool canAssign);
+
+// entry of parse rule table 
+typedef struct {
+    ParseFn prefix;
+    ParseFn infix;
+    Precedence precedence;
+} ParseRule;
+
+// predeclaration of function related with patt parser
+static void expression();
+static void statement();
+static void declaration();
+static ParseRule* getRule(TokenType type);
+static void parsePrecedence(Precedence precedence);
+static uint8_t parseVariable(const char* errorMessage);
+static uint8_t identifierConstant(Token* name);
+static void defineVariable(uint8_t global);
+static int resolveLocal(Compiler* compiler, Token* name);
+static void declareVariable();
+static void or_(bool canAssign);
+static void and_(bool canAssign);
+static void expressionStatement();
+static void varDeclaration();
 
 #endif
