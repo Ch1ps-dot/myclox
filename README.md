@@ -9,6 +9,9 @@
 ---
 
 ## UPDATE
+- 2023-06-04
+  - finish function
+  
 - 2023-05-30
   - finish jump forth and back
   
