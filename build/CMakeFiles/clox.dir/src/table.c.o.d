@@ -57,6 +57,7 @@ CMakeFiles/clox.dir/src/table.c.o: /root/handjob/myclox/src/table.c \
  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h \
  /root/handjob/myclox/include/object.h \
  /root/handjob/myclox/include/value.h \
+ /root/handjob/myclox/include/chunk.h \
  /root/handjob/myclox/include/object.h \
  /root/handjob/myclox/include/table.h \
  /root/handjob/myclox/include/value.h

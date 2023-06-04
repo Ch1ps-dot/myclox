@@ -33,8 +33,8 @@ CMakeFiles/clox.dir/src/object.c.o: /root/handjob/myclox/src/object.c \
  /usr/include/x86_64-linux-gnu/bits/stdint-uintn.h \
  /root/handjob/myclox/include/object.h \
  /root/handjob/myclox/include/value.h \
+ /root/handjob/myclox/include/chunk.h \
  /root/handjob/myclox/include/object.h \
  /root/handjob/myclox/include/value.h /root/handjob/myclox/include/vm.h \
- /root/handjob/myclox/include/chunk.h \
  /root/handjob/myclox/include/table.h \
  /root/handjob/myclox/include/table.h

@@ -31,5 +31,6 @@ CMakeFiles/clox.dir/src/value.c.o: /root/handjob/myclox/src/value.c \
  /usr/include/x86_64-linux-gnu/bits/stdint-uintn.h \
  /root/handjob/myclox/include/object.h \
  /root/handjob/myclox/include/value.h \
+ /root/handjob/myclox/include/chunk.h \
  /root/handjob/myclox/include/value.h \
  /root/handjob/myclox/include/object.h

@@ -65,6 +65,7 @@ CMakeFiles/clox.dir/src/chunk.c.o
  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h
  /root/handjob/myclox/include/value.h
  /root/handjob/myclox/include/object.h
+ /root/handjob/myclox/include/chunk.h
  /root/handjob/myclox/include/memory.h
 
 CMakeFiles/clox.dir/src/compiler.c.o
@@ -142,6 +143,7 @@ CMakeFiles/clox.dir/src/compiler.c.o
  /root/handjob/myclox/include/scanner.h
  /root/handjob/myclox/include/scanner.h
  /root/handjob/myclox/include/object.h
+ /root/handjob/myclox/include/debug.h
 
 CMakeFiles/clox.dir/src/debug.c.o
  /root/handjob/myclox/src/debug.c
@@ -252,8 +254,8 @@ CMakeFiles/clox.dir/src/main.c.o
  /root/handjob/myclox/include/common.h
  /root/handjob/myclox/include/value.h
  /root/handjob/myclox/include/object.h
- /root/handjob/myclox/include/debug.h
  /root/handjob/myclox/include/chunk.h
+ /root/handjob/myclox/include/debug.h
  /root/handjob/myclox/include/vm.h
  /root/handjob/myclox/include/table.h
 
@@ -321,8 +323,8 @@ CMakeFiles/clox.dir/src/memory.c.o
  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h
  /root/handjob/myclox/include/object.h
  /root/handjob/myclox/include/value.h
- /root/handjob/myclox/include/vm.h
  /root/handjob/myclox/include/chunk.h
+ /root/handjob/myclox/include/vm.h
  /root/handjob/myclox/include/table.h
 
 CMakeFiles/clox.dir/src/object.c.o
@@ -366,10 +368,10 @@ CMakeFiles/clox.dir/src/object.c.o
  /usr/include/x86_64-linux-gnu/bits/stdint-uintn.h
  /root/handjob/myclox/include/object.h
  /root/handjob/myclox/include/value.h
+ /root/handjob/myclox/include/chunk.h
  /root/handjob/myclox/include/object.h
  /root/handjob/myclox/include/value.h
  /root/handjob/myclox/include/vm.h
- /root/handjob/myclox/include/chunk.h
  /root/handjob/myclox/include/table.h
  /root/handjob/myclox/include/table.h
 
@@ -481,6 +483,7 @@ CMakeFiles/clox.dir/src/table.c.o
  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h
  /root/handjob/myclox/include/object.h
  /root/handjob/myclox/include/value.h
+ /root/handjob/myclox/include/chunk.h
  /root/handjob/myclox/include/object.h
  /root/handjob/myclox/include/table.h
  /root/handjob/myclox/include/value.h
@@ -522,6 +525,7 @@ CMakeFiles/clox.dir/src/value.c.o
  /usr/include/x86_64-linux-gnu/bits/stdint-uintn.h
  /root/handjob/myclox/include/object.h
  /root/handjob/myclox/include/value.h
+ /root/handjob/myclox/include/chunk.h
  /root/handjob/myclox/include/value.h
  /root/handjob/myclox/include/object.h
 
@@ -556,6 +560,17 @@ CMakeFiles/clox.dir/src/vm.c.o
  /usr/include/x86_64-linux-gnu/bits/types/locale_t.h
  /usr/include/x86_64-linux-gnu/bits/types/__locale_t.h
  /usr/include/strings.h
+ /usr/include/time.h
+ /usr/include/x86_64-linux-gnu/bits/time.h
+ /usr/include/x86_64-linux-gnu/bits/types/clock_t.h
+ /usr/include/x86_64-linux-gnu/bits/types/time_t.h
+ /usr/include/x86_64-linux-gnu/bits/types/struct_tm.h
+ /usr/include/x86_64-linux-gnu/bits/types/struct_timespec.h
+ /usr/include/x86_64-linux-gnu/bits/endian.h
+ /usr/include/x86_64-linux-gnu/bits/endianness.h
+ /usr/include/x86_64-linux-gnu/bits/types/clockid_t.h
+ /usr/include/x86_64-linux-gnu/bits/types/timer_t.h
+ /usr/include/x86_64-linux-gnu/bits/types/struct_itimerspec.h
  /root/handjob/myclox/include/common.h
  /usr/lib/gcc/x86_64-linux-gnu/11/include/stdbool.h
  /usr/lib/gcc/x86_64-linux-gnu/11/include/stdint.h

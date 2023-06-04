@@ -64,6 +64,7 @@ CMakeFiles/clox.dir/src/chunk.c.o: ../src/chunk.c \
   /usr/include/x86_64-linux-gnu/bits/stdio_lim.h \
   ../include/value.h \
   ../include/object.h \
+  ../include/chunk.h \
   ../include/memory.h
 
 CMakeFiles/clox.dir/src/compiler.c.o: ../src/compiler.c \
@@ -139,7 +140,8 @@ CMakeFiles/clox.dir/src/compiler.c.o: ../src/compiler.c \
   ../include/table.h \
   ../include/scanner.h \
   ../include/scanner.h \
-  ../include/object.h
+  ../include/object.h \
+  ../include/debug.h
 
 CMakeFiles/clox.dir/src/debug.c.o: ../src/debug.c \
   /usr/include/stdc-predef.h \
@@ -248,8 +250,8 @@ CMakeFiles/clox.dir/src/main.c.o: ../src/main.c \
   ../include/common.h \
   ../include/value.h \
   ../include/object.h \
-  ../include/debug.h \
   ../include/chunk.h \
+  ../include/debug.h \
   ../include/vm.h \
   ../include/table.h
 
@@ -316,8 +318,8 @@ CMakeFiles/clox.dir/src/memory.c.o: ../src/memory.c \
   /usr/include/x86_64-linux-gnu/bits/stdio_lim.h \
   ../include/object.h \
   ../include/value.h \
-  ../include/vm.h \
   ../include/chunk.h \
+  ../include/vm.h \
   ../include/table.h
 
 CMakeFiles/clox.dir/src/object.c.o: ../src/object.c \
@@ -360,10 +362,10 @@ CMakeFiles/clox.dir/src/object.c.o: ../src/object.c \
   /usr/include/x86_64-linux-gnu/bits/stdint-uintn.h \
   ../include/object.h \
   ../include/value.h \
+  ../include/chunk.h \
   ../include/object.h \
   ../include/value.h \
   ../include/vm.h \
-  ../include/chunk.h \
   ../include/table.h \
   ../include/table.h
 
@@ -473,6 +475,7 @@ CMakeFiles/clox.dir/src/table.c.o: ../src/table.c \
   /usr/include/x86_64-linux-gnu/bits/stdio_lim.h \
   ../include/object.h \
   ../include/value.h \
+  ../include/chunk.h \
   ../include/object.h \
   ../include/table.h \
   ../include/value.h
@@ -513,6 +516,7 @@ CMakeFiles/clox.dir/src/value.c.o: ../src/value.c \
   /usr/include/x86_64-linux-gnu/bits/stdint-uintn.h \
   ../include/object.h \
   ../include/value.h \
+  ../include/chunk.h \
   ../include/value.h \
   ../include/object.h
 
@@ -546,6 +550,17 @@ CMakeFiles/clox.dir/src/vm.c.o: ../src/vm.c \
   /usr/include/x86_64-linux-gnu/bits/types/locale_t.h \
   /usr/include/x86_64-linux-gnu/bits/types/__locale_t.h \
   /usr/include/strings.h \
+  /usr/include/time.h \
+  /usr/include/x86_64-linux-gnu/bits/time.h \
+  /usr/include/x86_64-linux-gnu/bits/types/clock_t.h \
+  /usr/include/x86_64-linux-gnu/bits/types/time_t.h \
+  /usr/include/x86_64-linux-gnu/bits/types/struct_tm.h \
+  /usr/include/x86_64-linux-gnu/bits/types/struct_timespec.h \
+  /usr/include/x86_64-linux-gnu/bits/endian.h \
+  /usr/include/x86_64-linux-gnu/bits/endianness.h \
+  /usr/include/x86_64-linux-gnu/bits/types/clockid_t.h \
+  /usr/include/x86_64-linux-gnu/bits/types/timer_t.h \
+  /usr/include/x86_64-linux-gnu/bits/types/struct_itimerspec.h \
   ../include/common.h \
   /usr/lib/gcc/x86_64-linux-gnu/11/include/stdbool.h \
   /usr/lib/gcc/x86_64-linux-gnu/11/include/stdint.h \
@@ -566,6 +581,10 @@ CMakeFiles/clox.dir/src/vm.c.o: ../src/vm.c \
   ../include/object.h \
   ../include/memory.h
 
+
+/usr/include/x86_64-linux-gnu/bits/time.h:
+
+/usr/include/time.h:
 
 ../src/vm.c:
 
@@ -653,6 +672,8 @@ CMakeFiles/clox.dir/src/vm.c.o: ../src/vm.c \
 
 /usr/include/features.h:
 
+/usr/include/x86_64-linux-gnu/bits/types/struct_tm.h:
+
 /usr/include/x86_64-linux-gnu/bits/types/FILE.h:
 
 /usr/include/x86_64-linux-gnu/gnu/stubs.h:
@@ -662,6 +683,8 @@ CMakeFiles/clox.dir/src/vm.c.o: ../src/vm.c \
 /usr/include/x86_64-linux-gnu/bits/timesize.h:
 
 /usr/include/stdint.h:
+
+/usr/include/x86_64-linux-gnu/bits/types/struct_itimerspec.h:
 
 /usr/lib/gcc/x86_64-linux-gnu/11/include/stdarg.h:
 

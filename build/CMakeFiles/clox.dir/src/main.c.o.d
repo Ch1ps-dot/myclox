@@ -58,6 +58,6 @@ CMakeFiles/clox.dir/src/main.c.o: /root/handjob/myclox/src/main.c \
  /root/handjob/myclox/include/common.h \
  /root/handjob/myclox/include/value.h \
  /root/handjob/myclox/include/object.h \
- /root/handjob/myclox/include/debug.h \
- /root/handjob/myclox/include/chunk.h /root/handjob/myclox/include/vm.h \
+ /root/handjob/myclox/include/chunk.h \
+ /root/handjob/myclox/include/debug.h /root/handjob/myclox/include/vm.h \
  /root/handjob/myclox/include/table.h

@@ -55,4 +55,5 @@ CMakeFiles/clox.dir/src/chunk.c.o: /root/handjob/myclox/src/chunk.c \
  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h \
  /root/handjob/myclox/include/value.h \
  /root/handjob/myclox/include/object.h \
+ /root/handjob/myclox/include/chunk.h \
  /root/handjob/myclox/include/memory.h

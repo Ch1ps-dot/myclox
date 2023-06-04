@@ -9,6 +9,11 @@
         "common.h": "c",
         "stdint.h": "c",
         "table.h": "c",
-        "typeinfo": "c"
+        "typeinfo": "c",
+        "limits": "c",
+        "compare": "c",
+        "new": "c",
+        "*.tcc": "c",
+        "cmath": "c"
     }
 }

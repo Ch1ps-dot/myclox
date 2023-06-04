@@ -4,29 +4,6 @@
 #include "common.h"
 #include "object.h"
 
-typedef struct Obj Obj;
-typedef struct ObjString ObjString;
-
-// data type
-typedef enum {
-  VAL_BOOL,
-  VAL_NIL, 
-  VAL_NUMBER,
-  VAL_OBJ
-} ValueType;
-
-// structure of clox Value
-#ifndef clox_tmp_Value
-#define clox_tmp_Value
-typedef struct Value{
-  ValueType type;
-  union {
-    bool boolean;
-    double number;
-    Obj* obj;
-  } as; 
-} Value;
-#endif
 
 // macro to validate type of value
 #define IS_BOOL(value)    ((value).type == VAL_BOOL)
@@ -45,11 +22,7 @@ typedef struct Value{
 #define NUMBER_VAL(value) ((Value){VAL_NUMBER, {.number = value}})
 #define OBJ_VAL(object)   ((Value){VAL_OBJ, {.obj = (Obj*)object}})
 
-typedef struct {
-  int capacity;
-  int count;
-  Value* values;
-} ValueArray;
+
 
 bool valuesEqual(Value a, Value b);
 void initValueArray(ValueArray* array);
