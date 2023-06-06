@@ -10,47 +10,31 @@
 #define OBJ_TYPE(value)        (AS_OBJ(value)->type)
 
 // macro to validate obj pointer cast
+#define IS_CLOSURE(value)      isObjType(value, OBJ_CLOSURE)
 #define IS_STRING(value)       isObjType(value, OBJ_STRING)
 #define IS_FUNCTION(value)     isObjType(value, OBJ_FUNCTION)
 #define IS_NATIVE(value)       isObjType(value, OBJ_NATIVE)
 
 // convert lox obj to c type
+#define AS_CLOSURE(value)      ((ObjClosure*)AS_OBJ(value))
 #define AS_STRING(value)       ((ObjString*)AS_OBJ(value))
 #define AS_FUNCTION(value)     ((ObjFunction*)AS_OBJ(value))
 #define AS_CSTRING(value)      (((ObjString*)AS_OBJ(value))->chars)
 #define AS_NATIVE(value) \
     (((ObjNative*)AS_OBJ(value))->function)
 
-// typedef enum {
-//   OBJ_FUNCTION,
-//   OBJ_STRING,
-// } ObjType;
+/**
+ * I moved some code to <common.h>,
+ * because of some compiling errors caused by bad structure of header file. 
+*/
 
-// typedef struct Obj {
-//   ObjType type;
-//   struct Obj* next;
-// } Obj;
-
-// typedef struct ObjString
-// {
-//     Obj obj;       // base struct
-//     int length;
-//     char* chars;
-//     uint32_t hash; // hash value
-// } ObjString;
-
-// typedef struct ObjFunction
-// {
-//     Obj obj;      // base struct
-//     int arity;
-//     Chunk chunk;
-//     ObjString* name;
-// } ObjFunction;
 
 ObjFunction* newFunction();
+ObjClosure* newClosure(ObjFunction* function);
 ObjNative* newNative(NativeFn function);
 ObjString* takeString(char* chars, int length);
 ObjString* copyString(const char* chars, int length);
+ObjUpvalue* newUpvalue(Value* slot);
 
 bool isObjType(Value value, ObjType type); 
 

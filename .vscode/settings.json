@@ -14,6 +14,19 @@
         "compare": "c",
         "new": "c",
         "*.tcc": "c",
-        "cmath": "c"
+        "cmath": "c",
+        "exception": "c",
+        "functional": "c",
+        "algorithm": "c",
+        "random": "c",
+        "istream": "c",
+        "numeric": "c",
+        "ostream": "c",
+        "streambuf": "c",
+        "string_view": "c",
+        "utility": "c",
+        "system_error": "c",
+        "array": "c",
+        "tuple": "c"
     }
 }

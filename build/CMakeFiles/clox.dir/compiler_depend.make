@@ -180,7 +180,8 @@ CMakeFiles/clox.dir/src/debug.c.o: ../src/debug.c \
   /usr/include/x86_64-linux-gnu/bits/stdint-uintn.h \
   ../include/value.h \
   ../include/object.h \
-  ../include/value.h
+  ../include/value.h \
+  ../include/object.h
 
 CMakeFiles/clox.dir/src/main.c.o: ../src/main.c \
   /usr/include/stdc-predef.h \

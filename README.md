@@ -9,6 +9,9 @@
 ---
 
 ## UPDATE
+- 2023-06-05
+  - finish closure
+
 - 2023-06-04
   - finish function
   

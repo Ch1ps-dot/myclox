@@ -62,4 +62,5 @@ CMakeFiles/clox.dir/src/compiler.c.o: /root/handjob/myclox/src/compiler.c \
  /root/handjob/myclox/include/table.h \
  /root/handjob/myclox/include/scanner.h \
  /root/handjob/myclox/include/scanner.h \
- /root/handjob/myclox/include/object.h
+ /root/handjob/myclox/include/object.h \
+ /root/handjob/myclox/include/debug.h

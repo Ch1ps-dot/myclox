@@ -1,3 +1,4 @@
+// errorhandle
 fun a() { b(); }
 fun b() { c(); }
 fun c() {

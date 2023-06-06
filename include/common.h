@@ -7,7 +7,7 @@
 #include <stdint.h>
 #include <stdio.h>
 
-// #define DEBUG_PRINT_CODE
+#define DEBUG_PRINT_CODE
 // #define DEBUG_TRACE_EXECUTION
 
 #define UINT8_COUNT (UINT8_MAX + 1)
@@ -33,9 +33,9 @@ typedef struct Value{
 } Value;
 
 typedef struct {
-  int capacity;
-  int count;
-  Value* values;
+    int capacity;
+    int count;
+    Value* values;
 } ValueArray;
 
 typedef struct Chunk
@@ -51,13 +51,15 @@ typedef struct Chunk
 
     int cnt_runlines;     // the count of run-lines code
     int cur_line;         // current line
-    ValueArray constants; // constant pool
+    ValueArray constants; // constant table
 } Chunk;
 
 typedef enum {
   OBJ_FUNCTION,
   OBJ_STRING,
   OBJ_NATIVE,
+  OBJ_CLOSURE,
+  OBJ_UPVALUE,
 } ObjType;
 
 typedef struct Obj {
@@ -73,6 +75,13 @@ typedef struct ObjString
     uint32_t hash; // hash value
 } ObjString;
 
+typedef struct ObjUpvalue {
+  Obj obj;
+  Value* location;
+  Value closed;
+  struct ObjUpvalue* next;
+} ObjUpvalue;
+
 typedef Value (*NativeFn)(int argCount, Value* args);
 typedef struct {
     Obj obj;
@@ -81,10 +90,18 @@ typedef struct {
 
 typedef struct ObjFunction
 {
-    Obj obj;      // base struct
+    Obj obj;          // base struct
     int arity;
-    Chunk chunk;
+    int upvalueCount; // record count of upvalue while compiling
+    Chunk chunk;      // bytecode chunk
     ObjString* name;
 } ObjFunction;
+
+typedef struct ObjClosure{
+  Obj obj;
+  ObjFunction* function;
+  ObjUpvalue** upvalues;
+  int upvalueCount;
+} ObjClosure;
 
 #endif

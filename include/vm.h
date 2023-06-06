@@ -12,9 +12,9 @@
 
 // represebting a ongoing function call
 typedef struct {
-  ObjFunction* function; // function
-  uint8_t* ip;           // point to return address
-  Value* slots;          // stack of local variable
+    ObjClosure* closure;   // function closure
+    uint8_t* ip;           // point to return address
+    Value* slots;          // stack of local variable
 } CallFrame;
 
 // definition of virtual-machine
@@ -23,11 +23,12 @@ typedef struct
     CallFrame frames[FRAMES_MAX];
     int frameCount;
 
-    Value stack[STACK_MAX];
+    Value stack[STACK_MAX]; // run-time stack
     Value* stackTop; // point to the space uppon top element
-    Table globals;    // global variable table
-    Table strings;   // string table
-    Obj* objects;    // heap memory , ans obj linklist for GC
+    Table globals;   // global variable table
+    Table strings;   // string table for interning
+    Obj* objects;    // heap memory , an obj linklist for GC
+    ObjUpvalue* openUpvalues; // open upvalue list
 } VM;
 
 typedef enum {

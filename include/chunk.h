@@ -20,6 +20,8 @@ typedef enum {
     OP_GET_GLOBAL,
     OP_DEFINE_GLOBAL,
     OP_SET_GLOBAL,
+    OP_GET_UPVALUE,
+    OP_SET_UPVALUE,
     OP_EQUAL,
     OP_GREATER,
     OP_LESS,
@@ -35,25 +37,15 @@ typedef enum {
     OP_JUMP,
     OP_LOOP,
     OP_CALL,
+    OP_CLOSURE,
+    OP_CLOSE_UPVALUE,
     OP_RETURN,
 } OpCode;
 
-// dynamic array of instructions
-// typedef struct Chunk
-// {
-//     int count;     // the amount of elemnet in array
-//     int capacity;  // the capacity of dynamic array
-//     uint8_t* code; // memory space stores instructions
-//     int* lines;
-    
-//     uint16_t* runlines;   // the map between weight and line number
-//                           // higher 8 bits represent line number, 
-//                           // lower 8 bits represent instruction number
-
-//     int cnt_runlines;     // the count of run-lines code
-//     int cur_line;         // current line
-//     ValueArray constants; // constant pool
-// } Chunk;
+/**
+ * I moved some code to <common.h>,
+ * because of some compiling errors caused by bad structure of header file. 
+*/
 
 void initChunk (Chunk* chunk);
 void writeChunk(Chunk* chunk, uint8_t byte, int line);

@@ -60,7 +60,6 @@ freeChunk (Chunk* chunk) {
     freeValueArray(&chunk->constants); // release the memory of constant pool
 }
 
-// fix this later
 // apply for OP_CONSTANT_LONG, its similar to writeChunk 
 void
 writeConstant(Chunk* chunk, Value value, int line) {
@@ -94,7 +93,7 @@ writeConstant(Chunk* chunk, Value value, int line) {
     chunk->count++;
 }
 
-// add contant to contant pool
+// add contant to contant table
 int 
 addConstant(Chunk* chunk, Value value) {
   writeValueArray(&chunk->constants, value);

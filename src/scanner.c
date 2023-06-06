@@ -104,6 +104,7 @@ skipWhitespace() {
                 if (peekNext() == '/') {
                     // skip one line comment
                     while (peek() != '\n' && !isAtEnd()) advance();
+                    break;
                 } else {
                     return;
                 }

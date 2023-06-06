@@ -22,6 +22,10 @@
 #define NUMBER_VAL(value) ((Value){VAL_NUMBER, {.number = value}})
 #define OBJ_VAL(object)   ((Value){VAL_OBJ, {.obj = (Obj*)object}})
 
+/**
+ * I moved some code to <common.h>,
+ * because of some compiling errors caused by bad structure of header file. 
+*/
 
 
 bool valuesEqual(Value a, Value b);

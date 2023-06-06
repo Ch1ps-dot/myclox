@@ -18,32 +18,51 @@ isObjType(Value value, ObjType type) {
 // allocate memory for obj struct
 static Obj* 
 allocateObject(size_t size, ObjType type) {
-  Obj* object = (Obj*)reallocate(NULL, 0, size);
-  object->type = type;
+    Obj* object = (Obj*)reallocate(NULL, 0, size);
+    object->type = type;
 
-  object->next = vm.objects;
-  vm.objects = object;
-  return object;
+    object->next = vm.objects;
+    vm.objects = object;
+    return object;
 } 
 
-// allocate new function 
+// create new function 
+// return its memory address
 ObjFunction* 
 newFunction() {
-  ObjFunction* function = ALLOCATE_OBJ(ObjFunction, OBJ_FUNCTION);
-  function->arity = 0;
-  function->name = NULL;
-  initChunk(&function->chunk);
-  return function;
+    ObjFunction* function = ALLOCATE_OBJ(ObjFunction, OBJ_FUNCTION);
+    function->arity = 0;
+    function->name = NULL;
+    function->upvalueCount = 0;
+    initChunk(&function->chunk);
+    return function;
 }
 
-// allocate new native function
+// create new closure
+ObjClosure* 
+newClosure(ObjFunction* function) {
+    ObjUpvalue** upvalues = ALLOCATE(ObjUpvalue*,
+                                    function->upvalueCount);
+    for (int i = 0; i < function->upvalueCount; i++) {
+      upvalues[i] = NULL;
+    }
+    ObjClosure* closure = ALLOCATE_OBJ(ObjClosure, OBJ_CLOSURE);
+    closure->function = function;
+    closure->upvalues = upvalues;
+    closure->upvalueCount = function->upvalueCount;
+    return closure;
+}
+
+// create new native function
 ObjNative* newNative(NativeFn function) {
   ObjNative* native = ALLOCATE_OBJ(ObjNative, OBJ_NATIVE);
   native->function = function;
   return native;
 }
 
-// allocating memory to and initializing ObjString 
+// allocating memory in heap for ObjString 
+// and insert string into string table.
+
 static ObjString* 
 allocateString(char* chars, int length, uint32_t hash) {
   ObjString* string = ALLOCATE_OBJ(ObjString, OBJ_STRING); 
@@ -78,10 +97,12 @@ takeString(char* chars, int length) {
   return allocateString(chars, length, hash);
 }
 
-// using chars copied from constant table to create ObjString
+// using chars copied from source code to create ObjString
 ObjString* 
 copyString(const char* chars, int length) {
   uint32_t hash = hashString(chars, length);
+
+  // string inerning 
   ObjString* interned = tableFindString(&vm.strings, chars, length,
                                         hash);
   if (interned != NULL) return interned;
@@ -90,6 +111,16 @@ copyString(const char* chars, int length) {
   memcpy(heapChars, chars, length);
   heapChars[length] = '\0';
   return allocateString(heapChars, length, hash);
+}
+
+// create new upvalue
+ObjUpvalue* 
+newUpvalue(Value* slot) {
+  ObjUpvalue* upvalue = ALLOCATE_OBJ(ObjUpvalue, OBJ_UPVALUE);
+  upvalue->location = slot;
+  upvalue->next = NULL;
+  upvalue->closed = NIL_VAL;
+  return upvalue;
 }
 
 // print information of ObjFunction
@@ -106,6 +137,9 @@ printFunction(ObjFunction* function) {
 void 
 printObject(Value value) {
   switch (OBJ_TYPE(value)) {
+    case OBJ_CLOSURE:
+      printFunction(AS_CLOSURE(value)->function);
+      break;
     case OBJ_FUNCTION:
       printFunction(AS_FUNCTION(value));
       break;
@@ -114,6 +148,9 @@ printObject(Value value) {
       break;
     case OBJ_NATIVE:
       printf("<native fn>");
+      break;
+    case OBJ_UPVALUE:
+      printf("upvalue");
       break;
   }
 }

@@ -32,4 +32,5 @@ CMakeFiles/clox.dir/src/debug.c.o: /root/handjob/myclox/src/debug.c \
  /usr/include/x86_64-linux-gnu/bits/stdint-uintn.h \
  /root/handjob/myclox/include/value.h \
  /root/handjob/myclox/include/object.h \
- /root/handjob/myclox/include/value.h
+ /root/handjob/myclox/include/value.h \
+ /root/handjob/myclox/include/object.h

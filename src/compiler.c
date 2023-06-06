@@ -136,7 +136,7 @@ emitReturn() {
     emitByte(OP_RETURN);
 }
 
-// insert constant into constant pool of currentchunk, return its index.
+// insert constant into constant table of currentchunk, return its index.
 static uint8_t 
 makeConstant(Value value) {
     int constant = addConstant(currentChunk(), value);
@@ -148,7 +148,7 @@ makeConstant(Value value) {
     return (uint8_t)constant;
 }
 
-// emit literal bytecode
+// emit bytecode of constant
 static void 
 emitConstant(Value value) {
     emitBytes(OP_CONSTANT,makeConstant(value));
@@ -188,6 +188,7 @@ initCompiler(Compiler* compiler, FunctionType type) {
     local->depth = 0;
     local->name.start = "";
     local->name.length = 0;
+    local->isCaptured = false;
 }
 
 // end the process of compling
@@ -219,7 +220,11 @@ endScope() {
     while (current->localCount > 0 &&
             current->locals[current->localCount - 1].depth >
                 current->scopeDepth) {
-        emitByte(OP_POP);
+        if (current->locals[current->localCount - 1].isCaptured) {
+            emitByte(OP_CLOSE_UPVALUE);
+        } else {
+            emitByte(OP_POP);
+        }
         current->localCount--;
     }
 }
@@ -343,15 +348,16 @@ ifStatement() {
 // parse block
 static void 
 block() {
-  while (!check(TOKEN_RIGHT_BRACE) && !check(TOKEN_EOF)) {
-    declaration();
-  }
+    while (!check(TOKEN_RIGHT_BRACE) && !check(TOKEN_EOF)) {
+        declaration();
+    }
 
-  consume(TOKEN_RIGHT_BRACE, "Expect '}' after block.");
+    consume(TOKEN_RIGHT_BRACE, "Expect '}' after block.");
 }
 
 // helper function to parse body of function 
-static void function(FunctionType type) {
+static void 
+function(FunctionType type) {
     Compiler compiler;
     initCompiler(&compiler, type);
     beginScope(); 
@@ -374,7 +380,13 @@ static void function(FunctionType type) {
     block();
 
     ObjFunction* function = endCompiler();
-    emitBytes(OP_CONSTANT, makeConstant(OBJ_VAL(function)));
+    emitBytes(OP_CLOSURE, makeConstant(OBJ_VAL(function)));
+
+    // emit local value and upvalues
+    for (int i = 0; i < function->upvalueCount; i++) {
+        emitByte(compiler.upvalues[i].isLocal ? 1 : 0);
+        emitByte(compiler.upvalues[i].index);
+    }
 }
 
 // parse funDeclarationstmt
@@ -385,7 +397,7 @@ static void funDeclaration() {
     defineVariable(global);
 }
 
-// parse varDeclaration
+// parse local and global variable
 static void 
 varDeclaration() {
     uint8_t global = parseVariable("Expect variable name.");
@@ -544,13 +556,15 @@ or_(bool canAssign) {
   patchJump(endJump);
 }
 
+// add string to constant table and
+// create new ObjString in heap
 static void 
 string(bool canAssign) {
     emitConstant(OBJ_VAL(copyString(parser.previous.start + 1,
                                     parser.previous.length - 2)));
 }
 
-// resolve set or get variable
+// set or get variable
 static void 
 namedVariable(Token name, bool canAssign) {
     uint8_t getOp, setOp;
@@ -558,13 +572,20 @@ namedVariable(Token name, bool canAssign) {
     if (arg != -1) {
         getOp = OP_GET_LOCAL;
         setOp = OP_SET_LOCAL;
-    } else {
+    }
+    // mark all variable in enclosured function as upvalue
+    // specify them through bytecode
+    else if ((arg = resolveUpvalue(current, &name)) != -1) { 
+        getOp = OP_GET_UPVALUE;
+        setOp = OP_SET_UPVALUE;
+    }
+    else {
         arg = identifierConstant(&name);
         getOp = OP_GET_GLOBAL;
         setOp = OP_SET_GLOBAL;
     }
 
-    // check if it is set or get
+    // check that it is to set or get variable
     if (canAssign && match(TOKEN_EQUAL)) {
         expression();
         emitBytes(setOp, arg);
@@ -573,7 +594,8 @@ namedVariable(Token name, bool canAssign) {
     }
 }
 
-// parse variable
+// get or set varibable
+// encapsuled <func> namedVariable 
 static void 
 variable(bool canAssign) {
     namedVariable(parser.previous, canAssign);
@@ -662,7 +684,7 @@ parsePrecedence(Precedence precedence) {
     }    
 }
 
-// add identifier to string table and constant pool
+// add identifier to string table and constant table
 static uint8_t 
 identifierConstant(Token* name) {
   return makeConstant(OBJ_VAL(copyString(name->start,
@@ -676,12 +698,14 @@ identifiersEqual(Token* a, Token* b) {
     return memcmp(a->start, b->start, a->length) == 0;
 }
 
-// resolve local variable
+// get index of local variable in local variable stack
 static int 
 resolveLocal(Compiler* compiler, Token* name) {
     for (int i = compiler->localCount - 1; i >= 0; i--) {
         Local* local = &compiler->locals[i];
         if (identifiersEqual(name, &local->name)) {
+
+            // don`t read variable hasn`t initialized.
             if (local->depth == -1) {
                 error("Can't read local variable in its own initializer.");
             }
@@ -692,8 +716,54 @@ resolveLocal(Compiler* compiler, Token* name) {
     return -1;
 }
 
-// add local variable to stack 
-static void addLocal(Token name) {
+// adding the upvalue to upvalues array, then
+// returning index of it in upvalues array.
+static int 
+addUpvalue(Compiler* compiler, uint8_t index,
+                      bool isLocal) {
+    int upvalueCount = compiler->function->upvalueCount;
+
+    // don`t add same upvalue
+    for (int i = 0; i < upvalueCount; i++) {
+        Upvalue* upvalue = &compiler->upvalues[i];
+        if (upvalue->index == index && upvalue->isLocal == isLocal) {
+            return i;
+        }
+    }
+
+    if (upvalueCount == UINT8_COUNT) {
+        error("Too many closure variables in function.");
+        return 0;
+    }
+
+    compiler->upvalues[upvalueCount].isLocal = isLocal;
+    compiler->upvalues[upvalueCount].index = index;
+    return compiler->function->upvalueCount++;
+}
+
+// get index of local variable if the compiler isn`t outermost.
+// add that to upvalues and return index of that in upvalues array.
+static int 
+resolveUpvalue(Compiler* compiler, Token* name) {
+    if (compiler->enclosing == NULL) return -1;
+
+    int local = resolveLocal(compiler->enclosing, name);
+    if (local != -1) {
+        return addUpvalue(compiler, (uint8_t)local, true);
+    }
+
+    // search targeted upvalue recursively
+    int upvalue = resolveUpvalue(compiler->enclosing, name);
+    if (upvalue != -1) {
+        return addUpvalue(compiler, (uint8_t)upvalue, false);
+    }
+
+    return -1;
+}
+
+// add local variable to local variable stack 
+static void 
+addLocal(Token name) {
     if (current->localCount == UINT8_COUNT) {
         error("Too many local variables in function.");
         return;
@@ -701,9 +771,11 @@ static void addLocal(Token name) {
     Local* local = &current->locals[current->localCount++];
     local->name = name;
     local->depth = -1;
+    local->isCaptured = false;
 }
 
-// parse variable
+// invoke declareVariable to parse local variable.
+// OtherwiseS add global variable to constant table directly.
 static uint8_t 
 parseVariable(const char* errorMessage) {
     consume(TOKEN_IDENTIFIER, errorMessage);
@@ -720,7 +792,8 @@ markInitialized() {
         current->scopeDepth;
 }
 
-// parse variable definition for global variable
+// define global variable
+// emit OP_DEFINE_GLOBAL
 static void 
 defineVariable(uint8_t global) {
     if (current->scopeDepth > 0) {
@@ -741,7 +814,8 @@ and_(bool canAssign) {
     patchJump(endJump);
 }
 
-// parse variable definition for local variable
+// parse local variable through invoking addLocal.
+// validate the name of variable.
 static void 
 declareVariable() {
     if (current->scopeDepth == 0) return;
@@ -768,7 +842,7 @@ argumentList() {
     uint8_t argCount = 0;
     if (!check(TOKEN_RIGHT_PAREN)) {
         do {
-        expression();
+            expression();
         if (argCount == 255) {
             error("Can't have more than 255 arguments.");
         }

@@ -8,6 +8,7 @@
 #define ALLOCATE(type, count) \
     (type*)reallocate(NULL, 0, sizeof(type) * (count))
 
+// free memory pointed by given struct
 #define FREE(type, pointer) reallocate(pointer, sizeof(type), 0)
 
 // expand capacity when needed extra memory

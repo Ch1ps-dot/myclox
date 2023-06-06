@@ -21,10 +21,18 @@ typedef enum {
     PREC_PRIMARY
 } Precedence;
 
+// local variable existing in local variable stack
 typedef struct {
-  Token name;
+  Token name; 
   int depth;
+  bool isCaptured;
 } Local;
+
+// upvalue
+typedef struct {
+  uint8_t index;
+  bool isLocal;
+} Upvalue;
 
 typedef enum {
   TYPE_FUNCTION,
@@ -35,8 +43,9 @@ typedef struct Compiler {
     struct Compiler* enclosing;
     ObjFunction* function;
     FunctionType type;
-    Local locals[UINT8_COUNT];
+    Local locals[UINT8_COUNT];  // local variable stack
     int localCount;
+    Upvalue upvalues[UINT8_COUNT];
     int scopeDepth;
 } Compiler;
 
@@ -75,5 +84,6 @@ static void varDeclaration();
 static void markInitialized();
 static uint8_t argumentList();
 static void funDeclaration();
+static int resolveUpvalue(Compiler* compiler, Token* name);
 
 #endif
