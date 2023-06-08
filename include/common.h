@@ -7,6 +7,7 @@
 #include <stdint.h>
 #include <stdio.h>
 
+
 // #define DEBUG_PRINT_CODE
 // #define DEBUG_TRACE_EXECUTION
 // #define DEBUG_STRESS_GC
@@ -15,6 +16,9 @@
 #define UINT8_COUNT (UINT8_MAX + 1)
 
 typedef struct Obj Obj;
+typedef struct entry entry;
+typedef struct Table Table;
+typedef struct ObjString ObjString;
 
 // data type
 typedef enum {
@@ -34,7 +38,7 @@ typedef struct Value{
   } as; 
 } Value;
 
-typedef struct {
+typedef struct ValueArray{
     int capacity;
     int count;
     Value* values;
@@ -56,12 +60,25 @@ typedef struct Chunk
     ValueArray constants; // constant table
 } Chunk;
 
+typedef struct Entry{
+  ObjString* key;
+  Value value;
+} Entry;
+
+typedef struct Table{
+  int count;
+  int capacity;
+  Entry* entries;
+} Table;
+
 typedef enum {
+  OBJ_CLASS,
   OBJ_FUNCTION,
   OBJ_STRING,
   OBJ_NATIVE,
   OBJ_CLOSURE,
   OBJ_UPVALUE,
+  OBJ_INSTANCE,
 } ObjType;
 
 typedef struct Obj {
@@ -106,5 +123,16 @@ typedef struct ObjClosure{
   ObjUpvalue** upvalues;
   int upvalueCount;
 } ObjClosure;
+
+typedef struct {
+  Obj obj;
+  ObjString* name;
+} ObjClass;
+
+typedef struct {
+  Obj obj;
+  ObjClass* klass;
+  Table fields; 
+} ObjInstance;
 
 #endif

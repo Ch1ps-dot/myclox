@@ -28,6 +28,9 @@
         "system_error": "c",
         "array": "c",
         "tuple": "c",
-        "stdbool.h": "c"
+        "stdbool.h": "c",
+        "memory.h": "c",
+        "chunk.h": "c",
+        "object.h": "c"
     }
 }

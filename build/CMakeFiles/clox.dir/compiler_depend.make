@@ -328,7 +328,8 @@ CMakeFiles/clox.dir/src/memory.c.o: ../src/memory.c \
   ../include/vm.h \
   ../include/table.h \
   ../include/scanner.h \
-  ../include/vm.h
+  ../include/vm.h \
+  ../include/debug.h
 
 CMakeFiles/clox.dir/src/object.c.o: ../src/object.c \
   /usr/include/stdc-predef.h \
