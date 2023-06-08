@@ -20,9 +20,15 @@ static Obj*
 allocateObject(size_t size, ObjType type) {
     Obj* object = (Obj*)reallocate(NULL, 0, size);
     object->type = type;
+    object->isMarked = false;
 
     object->next = vm.objects;
     vm.objects = object;
+
+    #ifdef DEBUG_LOG_GC
+      printf("%p allocate %zu for %d\n", (void*)object, size, type);
+    #endif
+
     return object;
 } 
 
@@ -61,15 +67,18 @@ ObjNative* newNative(NativeFn function) {
 }
 
 // allocating memory in heap for ObjString 
-// and insert string into string table.
-
+// and insert string into string intern table.
 static ObjString* 
 allocateString(char* chars, int length, uint32_t hash) {
   ObjString* string = ALLOCATE_OBJ(ObjString, OBJ_STRING); 
   string->length = length;
   string->chars = chars;
   string->hash = hash;
+
+  // fulfill GC
+  push(OBJ_VAL(string));
   tableSet(&vm.strings, string, NIL_VAL);
+  pop();
   return string;
 }
 
@@ -83,7 +92,8 @@ static uint32_t hashString(const char* key, int length) {
   return hash;
 }
 
-// allocate memory for a new string
+// string interning before  
+// allocate memory for new string
 ObjString* 
 takeString(char* chars, int length) {
   uint32_t hash = hashString(chars, length);

@@ -67,6 +67,11 @@ CMakeFiles/clox.dir/src/chunk.c.o
  /root/handjob/myclox/include/object.h
  /root/handjob/myclox/include/chunk.h
  /root/handjob/myclox/include/memory.h
+ /root/handjob/myclox/include/compiler.h
+ /root/handjob/myclox/include/vm.h
+ /root/handjob/myclox/include/table.h
+ /root/handjob/myclox/include/scanner.h
+ /root/handjob/myclox/include/vm.h
 
 CMakeFiles/clox.dir/src/compiler.c.o
  /root/handjob/myclox/src/compiler.c
@@ -143,7 +148,6 @@ CMakeFiles/clox.dir/src/compiler.c.o
  /root/handjob/myclox/include/scanner.h
  /root/handjob/myclox/include/scanner.h
  /root/handjob/myclox/include/object.h
- /root/handjob/myclox/include/debug.h
 
 CMakeFiles/clox.dir/src/debug.c.o
  /root/handjob/myclox/src/debug.c
@@ -325,8 +329,11 @@ CMakeFiles/clox.dir/src/memory.c.o
  /root/handjob/myclox/include/object.h
  /root/handjob/myclox/include/value.h
  /root/handjob/myclox/include/chunk.h
+ /root/handjob/myclox/include/compiler.h
  /root/handjob/myclox/include/vm.h
  /root/handjob/myclox/include/table.h
+ /root/handjob/myclox/include/scanner.h
+ /root/handjob/myclox/include/vm.h
 
 CMakeFiles/clox.dir/src/object.c.o
  /root/handjob/myclox/src/object.c
@@ -370,10 +377,13 @@ CMakeFiles/clox.dir/src/object.c.o
  /root/handjob/myclox/include/object.h
  /root/handjob/myclox/include/value.h
  /root/handjob/myclox/include/chunk.h
+ /root/handjob/myclox/include/compiler.h
+ /root/handjob/myclox/include/vm.h
+ /root/handjob/myclox/include/table.h
+ /root/handjob/myclox/include/scanner.h
  /root/handjob/myclox/include/object.h
  /root/handjob/myclox/include/value.h
  /root/handjob/myclox/include/vm.h
- /root/handjob/myclox/include/table.h
  /root/handjob/myclox/include/table.h
 
 CMakeFiles/clox.dir/src/scanner.c.o
@@ -485,6 +495,10 @@ CMakeFiles/clox.dir/src/table.c.o
  /root/handjob/myclox/include/object.h
  /root/handjob/myclox/include/value.h
  /root/handjob/myclox/include/chunk.h
+ /root/handjob/myclox/include/compiler.h
+ /root/handjob/myclox/include/vm.h
+ /root/handjob/myclox/include/table.h
+ /root/handjob/myclox/include/scanner.h
  /root/handjob/myclox/include/object.h
  /root/handjob/myclox/include/table.h
  /root/handjob/myclox/include/value.h
@@ -527,6 +541,10 @@ CMakeFiles/clox.dir/src/value.c.o
  /root/handjob/myclox/include/object.h
  /root/handjob/myclox/include/value.h
  /root/handjob/myclox/include/chunk.h
+ /root/handjob/myclox/include/compiler.h
+ /root/handjob/myclox/include/vm.h
+ /root/handjob/myclox/include/table.h
+ /root/handjob/myclox/include/scanner.h
  /root/handjob/myclox/include/value.h
  /root/handjob/myclox/include/object.h
 
@@ -586,9 +604,9 @@ CMakeFiles/clox.dir/src/vm.c.o
  /root/handjob/myclox/include/object.h
  /root/handjob/myclox/include/table.h
  /root/handjob/myclox/include/debug.h
+ /root/handjob/myclox/include/object.h
+ /root/handjob/myclox/include/memory.h
  /root/handjob/myclox/include/compiler.h
  /root/handjob/myclox/include/vm.h
  /root/handjob/myclox/include/scanner.h
- /root/handjob/myclox/include/object.h
- /root/handjob/myclox/include/memory.h
 

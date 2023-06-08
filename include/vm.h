@@ -27,8 +27,14 @@ typedef struct
     Value* stackTop; // point to the space uppon top element
     Table globals;   // global variable table
     Table strings;   // string table for interning
+    size_t bytesAllocated;  // size of allocated memory 
+    size_t nextGC;          // threshold of GC
     Obj* objects;    // heap memory , an obj linklist for GC
     ObjUpvalue* openUpvalues; // open upvalue list
+
+    int grayCount;
+    int grayCapacity;
+    Obj** grayStack;
 } VM;
 
 typedef enum {

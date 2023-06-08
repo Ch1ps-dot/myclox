@@ -55,5 +55,8 @@ CMakeFiles/clox.dir/src/memory.c.o: /root/handjob/myclox/src/memory.c \
  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h \
  /root/handjob/myclox/include/object.h \
  /root/handjob/myclox/include/value.h \
- /root/handjob/myclox/include/chunk.h /root/handjob/myclox/include/vm.h \
- /root/handjob/myclox/include/table.h
+ /root/handjob/myclox/include/chunk.h \
+ /root/handjob/myclox/include/compiler.h \
+ /root/handjob/myclox/include/vm.h /root/handjob/myclox/include/table.h \
+ /root/handjob/myclox/include/scanner.h /root/handjob/myclox/include/vm.h \
+ /root/handjob/myclox/include/debug.h

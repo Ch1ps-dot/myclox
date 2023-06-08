@@ -85,5 +85,6 @@ static void markInitialized();
 static uint8_t argumentList();
 static void funDeclaration();
 static int resolveUpvalue(Compiler* compiler, Token* name);
+void markCompilerRoots();
 
 #endif

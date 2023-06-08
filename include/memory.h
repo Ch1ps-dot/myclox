@@ -3,6 +3,7 @@
 
 #include "common.h"
 #include "object.h"
+#include "compiler.h"
 
 // allocate heap memory for obj field
 #define ALLOCATE(type, count) \
@@ -26,5 +27,9 @@
 
 void* reallocate(void* pointer, size_t oldSize, size_t newSize);
 void freeObjects();
+void markValue(Value value);
+void collectGarbage();
+void markObject(Obj* object);
+static void freeObject(Obj* object);
 
 #endif

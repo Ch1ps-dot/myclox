@@ -27,6 +27,7 @@
         "utility": "c",
         "system_error": "c",
         "array": "c",
-        "tuple": "c"
+        "tuple": "c",
+        "stdbool.h": "c"
     }
 }

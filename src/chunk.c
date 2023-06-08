@@ -1,6 +1,7 @@
 #include <stdlib.h>
 #include "chunk.h"
 #include "memory.h"
+#include "vm.h"
 
 // initChunk and set all arguments as 0
 void
@@ -96,8 +97,10 @@ writeConstant(Chunk* chunk, Value value, int line) {
 // add contant to contant table
 int 
 addConstant(Chunk* chunk, Value value) {
-  writeValueArray(&chunk->constants, value);
-  return chunk->constants.count - 1;
+    push(value);
+    writeValueArray(&chunk->constants, value);
+    pop();
+    return chunk->constants.count - 1;
 }
 
 int 

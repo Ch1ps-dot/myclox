@@ -9,6 +9,8 @@
 ---
 
 ## UPDATE
+- 2023-06-08
+  - finish garbage collector
 - 2023-06-05
   - finish closure
 

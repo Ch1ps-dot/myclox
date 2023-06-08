@@ -65,7 +65,12 @@ CMakeFiles/clox.dir/src/chunk.c.o: ../src/chunk.c \
   ../include/value.h \
   ../include/object.h \
   ../include/chunk.h \
-  ../include/memory.h
+  ../include/memory.h \
+  ../include/compiler.h \
+  ../include/vm.h \
+  ../include/table.h \
+  ../include/scanner.h \
+  ../include/vm.h
 
 CMakeFiles/clox.dir/src/compiler.c.o: ../src/compiler.c \
   /usr/include/stdc-predef.h \
@@ -140,8 +145,7 @@ CMakeFiles/clox.dir/src/compiler.c.o: ../src/compiler.c \
   ../include/table.h \
   ../include/scanner.h \
   ../include/scanner.h \
-  ../include/object.h \
-  ../include/debug.h
+  ../include/object.h
 
 CMakeFiles/clox.dir/src/debug.c.o: ../src/debug.c \
   /usr/include/stdc-predef.h \
@@ -320,8 +324,11 @@ CMakeFiles/clox.dir/src/memory.c.o: ../src/memory.c \
   ../include/object.h \
   ../include/value.h \
   ../include/chunk.h \
+  ../include/compiler.h \
   ../include/vm.h \
-  ../include/table.h
+  ../include/table.h \
+  ../include/scanner.h \
+  ../include/vm.h
 
 CMakeFiles/clox.dir/src/object.c.o: ../src/object.c \
   /usr/include/stdc-predef.h \
@@ -364,10 +371,13 @@ CMakeFiles/clox.dir/src/object.c.o: ../src/object.c \
   ../include/object.h \
   ../include/value.h \
   ../include/chunk.h \
+  ../include/compiler.h \
+  ../include/vm.h \
+  ../include/table.h \
+  ../include/scanner.h \
   ../include/object.h \
   ../include/value.h \
   ../include/vm.h \
-  ../include/table.h \
   ../include/table.h
 
 CMakeFiles/clox.dir/src/scanner.c.o: ../src/scanner.c \
@@ -477,6 +487,10 @@ CMakeFiles/clox.dir/src/table.c.o: ../src/table.c \
   ../include/object.h \
   ../include/value.h \
   ../include/chunk.h \
+  ../include/compiler.h \
+  ../include/vm.h \
+  ../include/table.h \
+  ../include/scanner.h \
   ../include/object.h \
   ../include/table.h \
   ../include/value.h
@@ -518,6 +532,10 @@ CMakeFiles/clox.dir/src/value.c.o: ../src/value.c \
   ../include/object.h \
   ../include/value.h \
   ../include/chunk.h \
+  ../include/compiler.h \
+  ../include/vm.h \
+  ../include/table.h \
+  ../include/scanner.h \
   ../include/value.h \
   ../include/object.h
 
@@ -576,11 +594,11 @@ CMakeFiles/clox.dir/src/vm.c.o: ../src/vm.c \
   ../include/object.h \
   ../include/table.h \
   ../include/debug.h \
+  ../include/object.h \
+  ../include/memory.h \
   ../include/compiler.h \
   ../include/vm.h \
-  ../include/scanner.h \
-  ../include/object.h \
-  ../include/memory.h
+  ../include/scanner.h
 
 
 /usr/include/x86_64-linux-gnu/bits/time.h:
@@ -595,6 +613,10 @@ CMakeFiles/clox.dir/src/vm.c.o: ../src/vm.c \
 
 ../src/memory.c:
 
+/usr/include/strings.h:
+
+/usr/include/x86_64-linux-gnu/bits/types/locale_t.h:
+
 ../src/value.c:
 
 ../include/scanner.h:
@@ -602,10 +624,6 @@ CMakeFiles/clox.dir/src/vm.c.o: ../src/vm.c \
 ../include/table.h:
 
 ../include/compiler.h:
-
-/usr/include/strings.h:
-
-/usr/include/x86_64-linux-gnu/bits/types/locale_t.h:
 
 ../include/memory.h:
 
