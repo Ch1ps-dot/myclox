@@ -11,7 +11,7 @@
 // #define DEBUG_PRINT_CODE
 // #define DEBUG_TRACE_EXECUTION
 // #define DEBUG_STRESS_GC
-#define DEBUG_LOG_GC
+// #define DEBUG_LOG_GC
 
 #define UINT8_COUNT (UINT8_MAX + 1)
 
@@ -72,6 +72,7 @@ typedef struct Table{
 } Table;
 
 typedef enum {
+  OBJ_BOUND_METHOD,
   OBJ_CLASS,
   OBJ_FUNCTION,
   OBJ_STRING,
@@ -127,6 +128,7 @@ typedef struct ObjClosure{
 typedef struct {
   Obj obj;
   ObjString* name;
+  Table methods;
 } ObjClass;
 
 typedef struct {
@@ -134,5 +136,11 @@ typedef struct {
   ObjClass* klass;
   Table fields; 
 } ObjInstance;
+
+typedef struct {
+  Obj obj;
+  Value receiver;
+  ObjClosure* method;
+} ObjBoundMethod;
 
 #endif

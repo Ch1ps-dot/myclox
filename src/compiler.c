@@ -14,6 +14,7 @@
 
 Parser parser;
 Compiler* current = NULL;
+ClassCompiler* currentClass = NULL;
 
 
 static Chunk* currentChunk() {
@@ -95,7 +96,7 @@ match(TokenType type) {
   return true;
 }
 
-// generaate bytecode to chunk
+// generate bytecode to chunk
 static void 
 emitByte(uint8_t byte) {
     writeChunk(currentChunk(), byte, parser.previous.line);
@@ -129,10 +130,17 @@ emitJump(uint8_t instruction) {
     return currentChunk()->count - 2;
 }
 
-// emit return bytecode to end expression
+// emit default return bytecode to end expression
 static void 
 emitReturn() {
-    emitByte(OP_NIL);
+
+    // handle return of initializer
+    if (current->type == TYPE_INITIALIZER) {
+        emitBytes(OP_GET_LOCAL, 0);
+    } else {
+        emitByte(OP_NIL);
+    }
+
     emitByte(OP_RETURN);
 }
 
@@ -189,6 +197,13 @@ initCompiler(Compiler* compiler, FunctionType type) {
     local->name.start = "";
     local->name.length = 0;
     local->isCaptured = false;
+    if (type != TYPE_FUNCTION) {
+        local->name.start = "this";
+        local->name.length = 4;
+    } else {
+        local->name.start = "";
+        local->name.length = 0;
+    }
 }
 
 // end the process of compling
@@ -278,7 +293,13 @@ dot(bool canAssign) {
     if (canAssign && match(TOKEN_EQUAL)) {
         expression();
         emitBytes(OP_SET_PROPERTY, name);
-    } else {
+    }
+    else if (match(TOKEN_LEFT_PAREN)) {
+        uint8_t argCount = argumentList();
+        emitBytes(OP_INVOKE, name);
+        emitByte(argCount);
+    } 
+    else {
         emitBytes(OP_GET_PROPERTY, name);
     }
 }
@@ -369,7 +390,8 @@ block() {
     consume(TOKEN_RIGHT_BRACE, "Expect '}' after block.");
 }
 
-// helper function to parse body of function 
+// emit code to create ObjClosure and leave it on top of stack
+// resolve the function and its closure
 static void 
 function(FunctionType type) {
     Compiler compiler;
@@ -403,18 +425,52 @@ function(FunctionType type) {
     }
 }
 
+// define method through function(), then emit OP_METHOD operator
+static void 
+method() {
+    // resolve method name
+    consume(TOKEN_IDENTIFIER, "Expect method name.");
+    uint8_t constant = identifierConstant(&parser.previous);
+    
+    // resolve method body
+    FunctionType type = TYPE_METHOD;
+    if (parser.previous.length == 4 &&
+        memcmp(parser.previous.start, "init", 4) == 0) {
+        type = TYPE_INITIALIZER;
+    }
+
+    function(type);
+    emitBytes(OP_METHOD, constant);
+}
+
 // parse class declaration
 static void 
 classDeclaration() {
+    // bind class name
     consume(TOKEN_IDENTIFIER, "Expect class name.");
+    Token className = parser.previous;
     uint8_t nameConstant = identifierConstant(&parser.previous);
     declareVariable();
 
     emitBytes(OP_CLASS, nameConstant);
     defineVariable(nameConstant);
 
+    // record information of class layer
+    ClassCompiler classCompiler;
+    classCompiler.enclosing = currentClass;
+    currentClass = &classCompiler;
+
+    namedVariable(className, false);
+    // resolve class body
     consume(TOKEN_LEFT_BRACE, "Expect '{' before class body.");
+    while (!check(TOKEN_RIGHT_BRACE) && !check(TOKEN_EOF)) {
+        method();
+    }
     consume(TOKEN_RIGHT_BRACE, "Expect '}' after class body.");
+    emitByte(OP_POP);
+
+    // pop the classDec just finished
+    currentClass = currentClass->enclosing;
 }
 
 // parse funDeclarationstmt
@@ -464,6 +520,10 @@ returnStatement() {
     if (match(TOKEN_SEMICOLON)) {
         emitReturn();
     } else {
+        // don`t return anything else but instance in initializer.
+        if (current->type == TYPE_INITIALIZER) {
+            error("Can't return a value from an initializer.");
+        }
         expression();
         consume(TOKEN_SEMICOLON, "Expect ';' after return value.");
         emitByte(OP_RETURN);
@@ -596,7 +656,7 @@ string(bool canAssign) {
                                     parser.previous.length - 2)));
 }
 
-// set or get variable
+// emit instruction to set or get variable
 static void 
 namedVariable(Token name, bool canAssign) {
     uint8_t getOp, setOp;
@@ -627,11 +687,20 @@ namedVariable(Token name, bool canAssign) {
 }
 
 // get or set varibable
-// encapsuled <func> namedVariable 
+// encapsuled namedVariable() 
 static void 
 variable(bool canAssign) {
     namedVariable(parser.previous, canAssign);
 }
+
+// resolve this for bound method
+static void this_(bool canAssign) {
+    if (currentClass == NULL) {
+        error("Can't use 'this' outside of a class.");
+        return;
+    }
+    variable(false);
+} 
 
 static void 
 unary(bool canAssign) {
@@ -686,7 +755,7 @@ ParseRule rules[] = {
   [TOKEN_PRINT]         = {NULL,     NULL,   PREC_NONE},
   [TOKEN_RETURN]        = {NULL,     NULL,   PREC_NONE},
   [TOKEN_SUPER]         = {NULL,     NULL,   PREC_NONE},
-  [TOKEN_THIS]          = {NULL,     NULL,   PREC_NONE},
+  [TOKEN_THIS]          = {this_,     NULL,   PREC_NONE},
   [TOKEN_TRUE]          = {literal,     NULL,   PREC_NONE},
   [TOKEN_VAR]           = {NULL,     NULL,   PREC_NONE},
   [TOKEN_WHILE]         = {NULL,     NULL,   PREC_NONE},
@@ -717,6 +786,7 @@ parsePrecedence(Precedence precedence) {
 }
 
 // add identifier to string table and constant table
+// return its index in constant table
 static uint8_t 
 identifierConstant(Token* name) {
   return makeConstant(OBJ_VAL(copyString(name->start,

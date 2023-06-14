@@ -16,8 +16,10 @@
 #define IS_FUNCTION(value)     isObjType(value, OBJ_FUNCTION)
 #define IS_NATIVE(value)       isObjType(value, OBJ_NATIVE)
 #define IS_INSTANCE(value)     isObjType(value, OBJ_INSTANCE)
+#define IS_BOUND_METHOD(value) isObjType(value, OBJ_BOUND_METHOD)
 
 // convert lox obj to c type
+#define AS_BOUND_METHOD(value) ((ObjBoundMethod*)AS_OBJ(value))
 #define AS_CLASS(value)        ((ObjClass*)AS_OBJ(value))
 #define AS_CLOSURE(value)      ((ObjClosure*)AS_OBJ(value))
 #define AS_STRING(value)       ((ObjString*)AS_OBJ(value))
@@ -31,7 +33,8 @@
  * I moved some code to <common.h>,
  * because of some compiling errors caused by bad structure of header file. 
 */
-
+ObjBoundMethod* newBoundMethod(Value receiver,
+                               ObjClosure* method);
 ObjClass* newClass(ObjString* name);
 ObjFunction* newFunction();
 ObjInstance* newInstance(ObjClass* klass);

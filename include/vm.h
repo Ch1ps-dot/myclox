@@ -27,6 +27,7 @@ typedef struct
     Value* stackTop; // point to the space uppon top element
     Table globals;   // global variable table
     Table strings;   // string table for interning
+    ObjString* initString;  //
     size_t bytesAllocated;  // size of allocated memory 
     size_t nextGC;          // threshold of GC
     Obj* objects;    // heap memory , an obj linklist for GC
