@@ -10,6 +10,9 @@
 ---
 
 ## UPDATE
+- 2023-06-14
+  - finish methods and initializers
+
 - 2023-06-08
   - finish garbage collector
   
