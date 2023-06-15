@@ -2,7 +2,6 @@
 #include "chunk.h"
 #include "memory.h"
 #include "vm.h"
-#include "global.h"
 
 // initChunk and set all arguments as 0
 void

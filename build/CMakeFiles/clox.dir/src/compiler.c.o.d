@@ -49,8 +49,7 @@ CMakeFiles/clox.dir/src/compiler.c.o: /root/handjob/myclox/src/compiler.c \
  /usr/include/x86_64-linux-gnu/bits/stdlib-float.h /usr/include/string.h \
  /usr/include/x86_64-linux-gnu/bits/types/locale_t.h \
  /usr/include/x86_64-linux-gnu/bits/types/__locale_t.h \
- /usr/include/strings.h /root/handjob/myclox/include/global.h \
- /root/handjob/myclox/include/common.h \
+ /usr/include/strings.h /root/handjob/myclox/include/common.h \
  /usr/lib/gcc/x86_64-linux-gnu/11/include/stdbool.h \
  /usr/lib/gcc/x86_64-linux-gnu/11/include/stdint.h /usr/include/stdint.h \
  /usr/include/x86_64-linux-gnu/bits/wchar.h \
@@ -63,4 +62,5 @@ CMakeFiles/clox.dir/src/compiler.c.o: /root/handjob/myclox/src/compiler.c \
  /root/handjob/myclox/include/table.h \
  /root/handjob/myclox/include/scanner.h \
  /root/handjob/myclox/include/scanner.h \
- /root/handjob/myclox/include/object.h
+ /root/handjob/myclox/include/object.h \
+ /root/handjob/myclox/include/debug.h

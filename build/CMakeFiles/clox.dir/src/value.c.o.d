@@ -22,7 +22,6 @@ CMakeFiles/clox.dir/src/value.c.o: /root/handjob/myclox/src/value.c \
  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h \
  /usr/include/x86_64-linux-gnu/bits/floatn.h \
  /usr/include/x86_64-linux-gnu/bits/floatn-common.h \
- /root/handjob/myclox/include/global.h \
  /root/handjob/myclox/include/memory.h \
  /root/handjob/myclox/include/common.h \
  /usr/lib/gcc/x86_64-linux-gnu/11/include/stdbool.h \

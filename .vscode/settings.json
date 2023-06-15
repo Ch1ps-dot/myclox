@@ -32,6 +32,8 @@
         "memory.h": "c",
         "chunk.h": "c",
         "object.h": "c",
-        "global.h": "c"
+        "global.h": "c",
+        "compiler.h": "c",
+        "scanner.h": "c"
     }
 }

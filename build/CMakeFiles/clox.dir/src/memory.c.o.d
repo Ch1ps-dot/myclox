@@ -39,7 +39,6 @@ CMakeFiles/clox.dir/src/memory.c.o: /root/handjob/myclox/src/memory.c \
  /usr/include/x86_64-linux-gnu/bits/struct_mutex.h \
  /usr/include/x86_64-linux-gnu/bits/struct_rwlock.h /usr/include/alloca.h \
  /usr/include/x86_64-linux-gnu/bits/stdlib-float.h \
- /root/handjob/myclox/include/global.h \
  /root/handjob/myclox/include/memory.h \
  /root/handjob/myclox/include/common.h \
  /usr/lib/gcc/x86_64-linux-gnu/11/include/stdbool.h \
@@ -59,4 +58,5 @@ CMakeFiles/clox.dir/src/memory.c.o: /root/handjob/myclox/src/memory.c \
  /root/handjob/myclox/include/chunk.h \
  /root/handjob/myclox/include/compiler.h \
  /root/handjob/myclox/include/vm.h /root/handjob/myclox/include/table.h \
- /root/handjob/myclox/include/scanner.h /root/handjob/myclox/include/vm.h
+ /root/handjob/myclox/include/scanner.h /root/handjob/myclox/include/vm.h \
+ /root/handjob/myclox/include/debug.h

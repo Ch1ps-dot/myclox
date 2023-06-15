@@ -26,7 +26,9 @@ allocateObject(size_t size, ObjType type) {
     vm.objects = object;
 
     #ifdef DEBUG_LOG_GC
+    if (debugGc) {
       printf("%p allocate %zu for %d\n", (void*)object, size, type);
+    }
     #endif
 
     return object;

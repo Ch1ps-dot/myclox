@@ -9,7 +9,6 @@
 #include "object.h"
 #include "memory.h"
 #include "object.h"
-#include "global.h"
 
 VM vm;
 
@@ -67,10 +66,6 @@ defineNative(const char* name, NativeFn function) {
 // initiate the stack
 void 
 initVM() {
-    // init debug mode
-    int debugCode = 0;
-    int debugExe = 0;
-    int debugGc = 0;
 
     resetStack();
     vm.objects = NULL;
@@ -328,6 +323,7 @@ run() {
 
         // debug execution
         #ifdef DEBUG_TRACE_EXECUTION
+        if (debugExe) {
             // display state of stack
             printf("        ");
             for (Value* slot = vm.stack; slot < vm.stackTop; slot++) {
@@ -340,6 +336,7 @@ run() {
             // display instruction
             disassembleInstruction(&frame->closure->function->chunk,
                 (int)(frame->ip - frame->closure->function->chunk.code));
+        }            
         #endif
 
         // instructions dispatch

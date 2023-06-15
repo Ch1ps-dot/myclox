@@ -1,6 +1,5 @@
 #include <stdlib.h>
 
-#include "global.h"
 #include "memory.h"
 #include "vm.h"
 
@@ -47,9 +46,11 @@ markObject(Obj* object) {
   if (object == NULL) return;
   if (object->isMarked) return;
 #ifdef DEBUG_LOG_GC
-  printf("%p mark ", (void*)object);
-  printValue(OBJ_VAL(object));
-  printf("\n");
+  if(debugGc) {
+    printf("%p mark ", (void*)object);
+    printValue(OBJ_VAL(object));
+    printf("\n");
+  }
 #endif
 
   object->isMarked = true;
@@ -81,9 +82,11 @@ markArray(ValueArray* array) {
 static void 
 blackenObject(Obj* object) {
 #ifdef DEBUG_LOG_GC
-  printf("%p blacken ", (void*)object);
-  printValue(OBJ_VAL(object));
-  printf("\n");
+  if(debugGc) {
+    printf("%p blacken ", (void*)object);
+    printValue(OBJ_VAL(object));
+    printf("\n");
+  }
 #endif
 
   switch (object->type) {
@@ -191,11 +194,14 @@ sweep() {
 void 
 collectGarbage() {
   #ifdef DEBUG_LOG_GC
-  printf("-- gc begin\n");
-  size_t before = vm.bytesAllocated;
-  printf("   collected %zu bytes (from %zu to %zu) next at %zu\n",
-         before - vm.bytesAllocated, before, vm.bytesAllocated,
-         vm.nextGC);
+  if (debugGc) {
+    printf("-- gc begin\n");
+    size_t before = vm.bytesAllocated;
+    printf("   collected %zu bytes (from %zu to %zu) next at %zu\n",
+          before - vm.bytesAllocated, before, vm.bytesAllocated,
+          vm.nextGC);
+  }
+  
   #endif
 
   markRoots();
@@ -206,7 +212,9 @@ collectGarbage() {
   vm.nextGC = vm.bytesAllocated * GC_HEAP_GROW_FACTOR;
 
   #ifdef DEBUG_LOG_GC
-  printf("-- gc end\n");
+  if(debugGc) {
+    printf("-- gc end\n");
+  }
   #endif
 }
 
@@ -215,7 +223,9 @@ static void
 freeObject(Obj* object) {
 
   #ifdef DEBUG_LOG_GC
+  if(debugGc) {
     printf("%p free type %d\n", (void*)object, object->type);
+  }
   #endif
 
   switch (object->type) {
