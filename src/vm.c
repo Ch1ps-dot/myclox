@@ -9,6 +9,7 @@
 #include "object.h"
 #include "memory.h"
 #include "object.h"
+#include "global.h"
 
 VM vm;
 
@@ -66,6 +67,11 @@ defineNative(const char* name, NativeFn function) {
 // initiate the stack
 void 
 initVM() {
+    // init debug mode
+    int debugCode = 0;
+    int debugExe = 0;
+    int debugGc = 0;
+
     resetStack();
     vm.objects = NULL;
     vm.bytesAllocated = 0;
@@ -187,7 +193,7 @@ invokeFromClass(ObjClass* klass, ObjString* name,
   return call(AS_CLOSURE(method), argCount);
 }
 
-// invoke method
+// invoke method.
 static bool 
 invoke(ObjString* name, int argCount) {
     Value receiver = peek(argCount);

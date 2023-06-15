@@ -31,6 +31,7 @@
         "stdbool.h": "c",
         "memory.h": "c",
         "chunk.h": "c",
-        "object.h": "c"
+        "object.h": "c",
+        "global.h": "c"
     }
 }

@@ -6,6 +6,7 @@
 #include "chunk.h"
 #include "debug.h"
 #include "vm.h"
+#include "global.h"
 
 // start clox with repl model  
 static void
@@ -19,6 +20,9 @@ repl() {
             break;
         }
 
+        if (strcmp(line,"exit")) {
+            exit(0);
+        }
         interpret(line);
     }
 }
@@ -69,9 +73,33 @@ main(int argc, const char* argv[]) {
     
     if (argc == 1) {
         repl();
-    } else if (argc == 2) {
+    } 
+    else if (argc == 2) {
         runFile(argv[1]);
-    } else {
+    }
+    else if (argc > 2) {
+        int flag = 0;
+        for (int i = 1; i < argc; i++) {
+            if (strcmp("-c", argv[i])) {
+                int debugCode = 1;
+            }
+            else if (strcmp("-e", argv[i])) {
+                int debugExe = 1;
+            }
+            else if (strcmp("-g", argv[i])) {
+                int debugGc = 1;
+            }
+            else {
+                flag = 1;
+                runFile(argv[i]);
+                break;
+            }
+        }
+        if (!flag) {
+            repl();
+        }
+    } 
+    else {
         fprintf(stderr, "Usage: clox [path]\n");
         exit(64);
     }

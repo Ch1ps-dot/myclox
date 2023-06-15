@@ -22,6 +22,7 @@ CMakeFiles/clox.dir/src/debug.c.o: /root/handjob/myclox/src/debug.c \
  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h \
  /usr/include/x86_64-linux-gnu/bits/floatn.h \
  /usr/include/x86_64-linux-gnu/bits/floatn-common.h \
+ /root/handjob/myclox/include/global.h \
  /root/handjob/myclox/include/debug.h \
  /root/handjob/myclox/include/chunk.h \
  /root/handjob/myclox/include/common.h \
