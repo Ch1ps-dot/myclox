@@ -5,12 +5,10 @@
 #include "value.h"
 #include "table.h"
 
-#define STACK_MAX 256
-
 #define FRAMES_MAX 64
 #define STACK_MAX (FRAMES_MAX * UINT8_COUNT)
 
-// represebting a ongoing function call
+// represebting an ongoing function call
 typedef struct {
     ObjClosure* closure;   // function closure
     uint8_t* ip;           // point to return address

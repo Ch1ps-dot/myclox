@@ -176,16 +176,17 @@ callValue(Value callee, int argCount) {
     return false;
 }
 
-// get method from class and call
+// invoke method from class and call
+// return its result
 static bool 
 invokeFromClass(ObjClass* klass, ObjString* name,
                             int argCount) {
-  Value method;
-  if (!tableGet(&klass->methods, name, &method)) {
-    runtimeError("Undefined property '%s'.", name->chars);
-    return false;
-  }
-  return call(AS_CLOSURE(method), argCount);
+    Value method;
+    if (!tableGet(&klass->methods, name, &method)) {
+        runtimeError("Undefined property '%s'.", name->chars);
+        return false;
+    }
+    return call(AS_CLOSURE(method), argCount);
 }
 
 // invoke method.
@@ -208,7 +209,7 @@ invoke(ObjString* name, int argCount) {
     return invokeFromClass(instance->klass, name, argCount);
 }
 
-// look up method with the given name
+// look up method with the given name from function table
 static bool 
 bindMethod(ObjClass* klass, ObjString* name) {
   Value method;
@@ -399,7 +400,7 @@ run() {
             }
 
             // get upvalue from surrouding function
-            // push that intp run-time stack
+            // push that into run-time stack
             case OP_GET_UPVALUE: {
                 uint8_t slot = READ_BYTE();
                 push(*frame->closure->upvalues[slot]->location);
@@ -449,6 +450,15 @@ run() {
                 Value b = pop();
                 Value a = pop();
                 push(BOOL_VAL(valuesEqual(a,b)));
+                break;
+            }
+            case OP_GET_SUPER: {
+                ObjString* name = READ_STRING();
+                ObjClass* superclass = AS_CLASS(pop());
+
+                if (!bindMethod(superclass, name)) {
+                    return INTERPRET_RUNTIME_ERROR;
+                }
                 break;
             }
             case OP_GREATER:  BINARY_OP(BOOL_VAL, >);  break;
@@ -517,6 +527,16 @@ run() {
                 frame = &vm.frames[vm.frameCount - 1];
                 break;
             }
+            case OP_SUPER_INVOKE: {
+                ObjString* method = READ_STRING();
+                int argCount = READ_BYTE();
+                ObjInstance* superclass = AS_INSTANCE(pop());
+                if (!invokeFromClass(superclass->klass, method, argCount)) {
+                    return INTERPRET_RUNTIME_ERROR;
+                }
+                frame = &vm.frames[vm.frameCount - 1];
+                break;
+            }
             case OP_CLOSURE: {
                 ObjFunction* function = AS_FUNCTION(READ_CONSTANT());
                 ObjClosure* closure = newClosure(function);
@@ -554,6 +574,19 @@ run() {
             }
             case OP_CLASS: {
                 push(OBJ_VAL(newClass(READ_STRING())));
+                break;
+            }
+            case OP_INHERIT: {
+                Value superclass = peek(1);
+                if (!IS_CLASS(superclass)) {
+                    runtimeError("Superclass must be a class.");
+                    return INTERPRET_RUNTIME_ERROR;
+                }
+
+                ObjClass* subclass = AS_CLASS(peek(0));
+                tableAddAll(&AS_CLASS(superclass)->methods,
+                            &subclass->methods);
+                pop(); // pop Subclass.
                 break;
             }
             case OP_METHOD:

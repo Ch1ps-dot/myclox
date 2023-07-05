@@ -212,6 +212,9 @@ clock()
 ---
 
 ## UPDATE
+- 2023-07-05
+  - finish superclass
+
 - 2023-06-14
   - finish methods and initializers
 

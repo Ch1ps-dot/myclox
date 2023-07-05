@@ -52,6 +52,7 @@ typedef struct Compiler {
 } Compiler;
 
 typedef struct ClassCompiler {
+    bool hasSuperclass;
     struct ClassCompiler* enclosing;
 } ClassCompiler;
 
@@ -93,5 +94,9 @@ static void funDeclaration();
 static int resolveUpvalue(Compiler* compiler, Token* name);
 void markCompilerRoots();
 static void namedVariable(Token name, bool canAssign);
+static bool identifiersEqual(Token* a, Token* b);
+static void addLocal(Token name);
+static void variable(bool canAssign);
+static Token syntheticToken(const char* text);
 
 #endif
