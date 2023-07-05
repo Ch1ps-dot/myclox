@@ -146,7 +146,7 @@ fn(); // outside
 
 ### 类
 
-Lox中的类用关键词class声明。Lox的类里没有字段，只包括各种方法。像很多动态语言一样，Lox的对象可以随意地加入新的变量。除此之外Lox中地类还可以包括一个特殊的init方法。如果你声明了这个方法，你就必须在实例化类的时候初始化一些字段。
+Lox中的类用关键词class声明。Lox的类定义中没有字段，只包括各种方法。而像很多动态语言一样，Lox的实例可以随意地加入新的变量。除此之外Lox中的类还可以包括一个特殊的init方法。如果你声明了这个方法，你就必须在实例化类的时候初始化一些字段。Lox语言还支持继承操作，但是只继承父类的方法。Lox中的所有类都包含一个隐藏的指向其自身的this字段，如果该类是子类它还会有一个指向父类的super字段，
 
 ```c
 class Breakfast {
@@ -164,6 +164,35 @@ var someVariable = Breakfast;
 
 // Pass it to functions.
 someFunction(Breakfast);
+```
+
+```c
+// add fields
+breakfast.meat = "sausage";
+breakfast.bread = "sourdough";
+
+// invoke this fields
+class Breakfast {
+  init(meat, bread) {
+    this.meat = meat;
+    this.bread = bread;
+  }
+
+  // ...
+}
+
+var baconAndToast = Breakfast("bacon", "toast");
+baconAndToast.serve("Dear Reader");
+```
+
+```C
+// inheritance and super fields
+class Brunch < Breakfast {
+  init(meat, bread, drink) {
+    super.init(meat, bread);
+    this.drink = drink;
+  }
+}
 ```
 
 ```C
